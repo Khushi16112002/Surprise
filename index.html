@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Girl 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI', sans-serif;
+  background:linear-gradient(to bottom,#ff9a9e,#fad0c4);
+  color:white;
+  text-align:center;
+}
+
+.page{
+  display:none;
+  padding:50px 20px;
+  min-height:100vh;
+}
+
+.page.active{display:block;}
+
+h1{font-size:34px; animation:fadeZoom 2s;}
+h2{font-size:26px;}
+p{font-size:17px; line-height:1.7;}
+
+button{
+  padding:12px 32px;
+  border:none;
+  border-radius:25px;
+  background:#ff4d6d;
+  color:white;
+  font-size:16px;
+  margin-top:30px;
+}
+
+label{
+  display:block;
+  margin:10px 0;
+}
+
+img{
+  width:85%;
+  max-width:320px;
+  border-radius:20px;
+  margin:18px 0;
+  opacity:0;
+  animation:photoFade 1.5s forwards;
+}
+
+img:nth-child(1){animation-delay:0.5s;}
+img:nth-child(2){animation-delay:1.5s;}
+img:nth-child(3){animation-delay:2.5s;}
+img:nth-child(4){animation-delay:3.5s;}
+img:nth-child(5){animation-delay:4.5s;}
+img:nth-child(6){animation-delay:5.5s;}
+img:nth-child(7){animation-delay:6.5s;}
+img:nth-child(8){animation-delay:7.5s;}
+img:nth-child(9){animation-delay:8.5s;}
+img:nth-child(10){animation-delay:9.5s;}
+
+video{
+  width:90%;
+  max-width:350px;
+  border-radius:20px;
+  margin-top:25px;
+}
+
+@keyframes fadeZoom{
+  from{opacity:0; transform:scale(0.85);}
+  to{opacity:1; transform:scale(1);}
+}
+@keyframes photoFade{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+</style>
+
+<script>
+function nextPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function startSurprise(){
+  document.getElementById("music").play();
+  nextPage('page2');
+}
+</script>
+</head>
+
+<body>
+
+<!-- 🎵 BACKGROUND MUSIC (starts after login) -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+  <h1>💖 This is for my girl 💖</h1>
+  <p>Something made with all my heart ✨</p>
+  <button onclick="startSurprise()">Login 🔐</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+  <h2>Question 1 💭</h2>
+  <p>What is the favorite thing you like that I do for you?</p>
+  <label><input type="radio" name="q1"> Irritating you</label>
+  <label><input type="radio" name="q1"> Fighting with you</label>
+  <label><input type="radio" name="q1"> Keeping quiet</label>
+  <label><input type="radio" name="q1"> Making you happy 💖</label>
+  <button onclick="nextPage('page3')">Submit ➜</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page">
+  <h2>Question 2 💭</h2>
+  <p>What is the favorite thing you want me to do with you?</p>
+  <label><input type="radio" name="q2"> Ride</label>
+  <label><input type="radio" name="q2"> Eating together</label>
+  <label><input type="radio" name="q2"> Chit chatting 💬</label>
+  <label><input type="radio" name="q2"> Arguing</label>
+  <button onclick="nextPage('page4')">Submit ➜</button>
+</div>
+
+<!-- PAGE 4 -->
+<div id="page4" class="page">
+  <h1>🎂 HAPPY BIRTHDAY CHINNI 🎂</h1>
+  <p>The prettiest soul I know ✨</p>
+
+  <img src="photo1.jpg">
+  <img src="photo2.jpg">
+  <img src="photo3.jpg">
+  <img src="photo4.jpg">
+  <img src="photo5.jpg">
+  <img src="photo6.jpg">
+  <img src="photo7.jpg">
+  <img src="photo8.jpg">
+  <img src="photo9.jpg">
+  <img src="photo10.jpg">
+
+  <button onclick="nextPage('page5')">Next 💌</button>
+</div>
+
+<!-- PAGE 5 -->
+<div id="page5" class="page">
+  <h2>💖 From My Heart</h2>
+  <p>
+    <!-- ✏️ WRITE YOUR LETTER HERE -->
+    Happy Birthday Chinni 🤍<br><br>
+    Write everything you feel here…  
+    This page is only for you and me 💕
+  </p>
+  <button onclick="nextPage('page6')">Next 🎥</button>
+</div>
+
+<!-- PAGE 6 -->
+<div id="page6" class="page">
+  <h2>🎥 A Small Piece of Us</h2>
+  <video controls>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+  <button onclick="nextPage('page7')">One Last Thing 💞</button>
+</div>
+
+<!-- PAGE 7 -->
+<div id="page7" class="page">
+  <h1>💖 I’m always here 💖</h1>
+  <p>
+    No matter what…  
+    No matter when…  
+    I’ll always be right here for you 🤍
+  </p>
+</div>
+
+</body>
+</html>
