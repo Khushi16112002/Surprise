@@ -9,31 +9,41 @@
 body{
   margin:0;
   font-family:'Segoe UI', sans-serif;
-  background:linear-gradient(to bottom,#ff9a9e,#fad0c4);
-  color:white;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color:#f5f5f5;
   text-align:center;
 }
 
 .page{
   display:none;
-  padding:50px 20px;
+  padding:60px 20px;
   min-height:100vh;
 }
 
 .page.active{display:block;}
 
-h1{font-size:34px; animation:fadeZoom 2s;}
-h2{font-size:26px;}
-p{font-size:17px; line-height:1.7;}
+h1{
+  font-size:34px;
+  color:#ffd700;
+  animation:fadeZoom 2s;
+}
+h2{
+  color:#ffd700;
+}
+p{
+  font-size:17px;
+  line-height:1.7;
+}
 
 button{
   padding:12px 32px;
   border:none;
-  border-radius:25px;
-  background:#ff4d6d;
-  color:white;
+  border-radius:30px;
+  background:linear-gradient(135deg,#d4af37,#f9e076);
+  color:#1a1a1a;
   font-size:16px;
   margin-top:30px;
+  cursor:pointer;
 }
 
 label{
@@ -45,27 +55,27 @@ img{
   width:85%;
   max-width:320px;
   border-radius:20px;
-  margin:18px 0;
+  margin:20px 0;
   opacity:0;
-  animation:photoFade 1.5s forwards;
+  animation:photoFade 2s forwards;
 }
 
 img:nth-child(1){animation-delay:0.5s;}
-img:nth-child(2){animation-delay:1.5s;}
-img:nth-child(3){animation-delay:2.5s;}
-img:nth-child(4){animation-delay:3.5s;}
-img:nth-child(5){animation-delay:4.5s;}
-img:nth-child(6){animation-delay:5.5s;}
-img:nth-child(7){animation-delay:6.5s;}
-img:nth-child(8){animation-delay:7.5s;}
-img:nth-child(9){animation-delay:8.5s;}
-img:nth-child(10){animation-delay:9.5s;}
+img:nth-child(2){animation-delay:1.8s;}
+img:nth-child(3){animation-delay:3.1s;}
+img:nth-child(4){animation-delay:4.4s;}
+img:nth-child(5){animation-delay:5.7s;}
+img:nth-child(6){animation-delay:7s;}
+img:nth-child(7){animation-delay:8.3s;}
+img:nth-child(8){animation-delay:9.6s;}
+img:nth-child(9){animation-delay:10.9s;}
+img:nth-child(10){animation-delay:12.2s;}
 
 video{
   width:90%;
-  max-width:350px;
+  max-width:360px;
   border-radius:20px;
-  margin-top:25px;
+  margin-top:30px;
 }
 
 @keyframes fadeZoom{
@@ -85,7 +95,9 @@ function nextPage(id){
 }
 
 function startSurprise(){
-  document.getElementById("music").play();
+  const music = document.getElementById("music");
+  music.muted = false;
+  music.play().catch(()=>{});
   nextPage('page2');
 }
 </script>
@@ -93,44 +105,44 @@ function startSurprise(){
 
 <body>
 
-<!-- 🎵 BACKGROUND MUSIC (starts after login) -->
-<audio id="music" loop>
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio id="music" loop muted>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <!-- PAGE 1 -->
 <div id="page1" class="page active">
-  <h1>💖 This is for my girl 💖</h1>
-  <p>Something made with all my heart ✨</p>
+  <h1>This is for my girl 💖</h1>
+  <p>Something made just for you</p>
   <button onclick="startSurprise()">Login 🔐</button>
 </div>
 
 <!-- PAGE 2 -->
 <div id="page2" class="page">
-  <h2>Question 1 💭</h2>
+  <h2>Question 1</h2>
   <p>What is the favorite thing you like that I do for you?</p>
   <label><input type="radio" name="q1"> Irritating you</label>
   <label><input type="radio" name="q1"> Fighting with you</label>
   <label><input type="radio" name="q1"> Keeping quiet</label>
   <label><input type="radio" name="q1"> Making you happy 💖</label>
-  <button onclick="nextPage('page3')">Submit ➜</button>
+  <button onclick="nextPage('page3')">Next ➜</button>
 </div>
 
 <!-- PAGE 3 -->
 <div id="page3" class="page">
-  <h2>Question 2 💭</h2>
+  <h2>Question 2</h2>
   <p>What is the favorite thing you want me to do with you?</p>
   <label><input type="radio" name="q2"> Ride</label>
   <label><input type="radio" name="q2"> Eating together</label>
   <label><input type="radio" name="q2"> Chit chatting 💬</label>
   <label><input type="radio" name="q2"> Arguing</label>
-  <button onclick="nextPage('page4')">Submit ➜</button>
+  <button onclick="nextPage('page4')">Next ➜</button>
 </div>
 
 <!-- PAGE 4 -->
 <div id="page4" class="page">
-  <h1>🎂 HAPPY BIRTHDAY CHINNI 🎂</h1>
-  <p>The prettiest soul I know ✨</p>
+  <h1>Happy Birthday Chinni 🎂</h1>
+  <p>The prettiest soul I know</p>
 
   <img src="photo1.jpg">
   <img src="photo2.jpg">
@@ -148,33 +160,29 @@ function startSurprise(){
 
 <!-- PAGE 5 -->
 <div id="page5" class="page">
-  <h2>💖 From My Heart</h2>
+  <h2>From My Heart 🤍</h2>
   <p>
-    <!-- ✏️ WRITE YOUR LETTER HERE -->
-    Happy Birthday Chinni 🤍<br><br>
-    Write everything you feel here…  
-    This page is only for you and me 💕
+    <!-- WRITE YOUR LETTER HERE -->
+    Happy Birthday Chinni…<br><br>
+    Write your paragraph here.  
+    This page is only for your feelings 💕
   </p>
   <button onclick="nextPage('page6')">Next 🎥</button>
 </div>
 
 <!-- PAGE 6 -->
 <div id="page6" class="page">
-  <h2>🎥 A Small Piece of Us</h2>
-  <video controls>
+  <h2>A Small Piece of Us 🎥</h2>
+  <video controls playsinline>
     <source src="video.mp4" type="video/mp4">
   </video>
-  <button onclick="nextPage('page7')">One Last Thing 💞</button>
+  <button onclick="nextPage('page7')">One Last Thing 💖</button>
 </div>
 
 <!-- PAGE 7 -->
 <div id="page7" class="page">
-  <h1>💖 I’m always here 💖</h1>
-  <p>
-    No matter what…  
-    No matter when…  
-    I’ll always be right here for you 🤍
-  </p>
+  <h1>I’m always here 🤍</h1>
+  <p>No matter what… I’ll be right here.</p>
 </div>
 
 </body>
