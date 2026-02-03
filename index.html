@@ -6,183 +6,223 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
+/* ===== LUXURY PALETTE ===== */
+:root{
+  --bg1:#0b0b0f;
+  --bg2:#14141a;
+  --rose:#e6b3b3;
+  --rose-strong:#d9a3a3;
+  --text:#f4f1f1;
+  --muted:#cfc7c7;
+}
+
+/* ===== BASE ===== */
+html,body{
   margin:0;
-  font-family:'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color:#f5f5f5;
+  font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: radial-gradient(1200px 800px at 10% 10%, #1a1a22, transparent 60%),
+              radial-gradient(900px 600px at 90% 20%, #1f1a1f, transparent 55%),
+              linear-gradient(180deg, var(--bg1), var(--bg2));
+  color:var(--text);
   text-align:center;
 }
 
 .page{
   display:none;
-  padding:60px 20px;
+  padding:64px 18px;
   min-height:100vh;
 }
+.page.active{display:block}
 
-.page.active{display:block;}
-
+/* ===== TYPOGRAPHY ===== */
 h1{
-  font-size:34px;
-  color:#ffd700;
-  animation:fadeZoom 2s;
+  font-size:36px;
+  letter-spacing:.5px;
+  color:var(--rose);
+  text-shadow:0 8px 30px rgba(230,179,179,.25);
+  animation:fadeZoom 1.8s ease-out;
 }
 h2{
-  color:#ffd700;
+  color:var(--rose);
+  margin-bottom:8px;
 }
 p{
   font-size:17px;
-  line-height:1.7;
+  line-height:1.75;
+  color:var(--muted);
 }
 
+/* ===== BUTTON ===== */
 button{
-  padding:12px 32px;
-  border:none;
-  border-radius:30px;
-  background:linear-gradient(135deg,#d4af37,#f9e076);
-  color:#1a1a1a;
-  font-size:16px;
-  margin-top:30px;
+  margin-top:28px;
+  padding:12px 34px;
+  border-radius:999px;
+  border:1px solid rgba(230,179,179,.35);
+  background:
+    linear-gradient(135deg, rgba(230,179,179,.35), rgba(217,163,163,.75));
+  color:#1a1414;
+  font-weight:600;
+  letter-spacing:.3px;
+  box-shadow:
+    0 10px 30px rgba(217,163,163,.35),
+    inset 0 1px 0 rgba(255,255,255,.35);
   cursor:pointer;
 }
+button:active{transform:translateY(1px)}
 
+/* ===== QUESTIONS ===== */
 label{
   display:block;
-  margin:10px 0;
+  margin:10px auto;
+  max-width:420px;
+  padding:10px 14px;
+  border-radius:14px;
+  border:1px solid rgba(230,179,179,.18);
+  background:rgba(255,255,255,.03);
+  color:var(--text);
 }
 
-img{
-  width:85%;
-  max-width:320px;
-  border-radius:20px;
-  margin:20px 0;
+/* ===== PHOTOS ===== */
+.gallery img{
+  width:86%;
+  max-width:340px;
+  border-radius:22px;
+  margin:18px 0;
   opacity:0;
-  animation:photoFade 2s forwards;
+  animation:photoFade 2.2s forwards;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.55),
+    0 0 0 1px rgba(230,179,179,.15);
 }
+.gallery img:nth-child(1){animation-delay:.6s}
+.gallery img:nth-child(2){animation-delay:2.0s}
+.gallery img:nth-child(3){animation-delay:3.4s}
+.gallery img:nth-child(4){animation-delay:4.8s}
+.gallery img:nth-child(5){animation-delay:6.2s}
+.gallery img:nth-child(6){animation-delay:7.6s}
+.gallery img:nth-child(7){animation-delay:9.0s}
+.gallery img:nth-child(8){animation-delay:10.4s}
+.gallery img:nth-child(9){animation-delay:11.8s}
+.gallery img:nth-child(10){animation-delay:13.2s}
 
-img:nth-child(1){animation-delay:0.5s;}
-img:nth-child(2){animation-delay:1.8s;}
-img:nth-child(3){animation-delay:3.1s;}
-img:nth-child(4){animation-delay:4.4s;}
-img:nth-child(5){animation-delay:5.7s;}
-img:nth-child(6){animation-delay:7s;}
-img:nth-child(7){animation-delay:8.3s;}
-img:nth-child(8){animation-delay:9.6s;}
-img:nth-child(9){animation-delay:10.9s;}
-img:nth-child(10){animation-delay:12.2s;}
-
+/* ===== VIDEO ===== */
 video{
-  width:90%;
-  max-width:360px;
-  border-radius:20px;
-  margin-top:30px;
+  width:92%;
+  max-width:380px;
+  border-radius:22px;
+  margin-top:26px;
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.6),
+    0 0 0 1px rgba(230,179,179,.18);
 }
 
+/* ===== ANIMATIONS ===== */
 @keyframes fadeZoom{
-  from{opacity:0; transform:scale(0.85);}
-  to{opacity:1; transform:scale(1);}
+  from{opacity:0; transform:scale(.9)}
+  to{opacity:1; transform:scale(1)}
 }
 @keyframes photoFade{
-  from{opacity:0; transform:translateY(30px);}
-  to{opacity:1; transform:translateY(0);}
+  from{opacity:0; transform:translateY(24px)}
+  to{opacity:1; transform:translateY(0)}
 }
 </style>
 
 <script>
-function nextPage(id){
+function show(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
-
 function startSurprise(){
-  const music = document.getElementById("music");
-  music.muted = false;
-  music.play().catch(()=>{});
-  nextPage('page2');
+  const m=document.getElementById('music');
+  m.muted=false;               // required for mobile
+  m.play().catch(()=>{});      // play after click
+  show('p2');
 }
 </script>
 </head>
 
 <body>
 
-<!-- 🎵 BACKGROUND MUSIC -->
+<!-- MUSIC (starts after Login click) -->
 <audio id="music" loop muted>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <!-- PAGE 1 -->
-<div id="page1" class="page active">
-  <h1>This is for my girl 💖</h1>
-  <p>Something made just for you</p>
+<div id="p1" class="page active">
+  <h1>This is for my girl 🌹</h1>
+  <p>Something made with love, just for you</p>
   <button onclick="startSurprise()">Login 🔐</button>
 </div>
 
 <!-- PAGE 2 -->
-<div id="page2" class="page">
+<div id="p2" class="page">
   <h2>Question 1</h2>
   <p>What is the favorite thing you like that I do for you?</p>
   <label><input type="radio" name="q1"> Irritating you</label>
   <label><input type="radio" name="q1"> Fighting with you</label>
   <label><input type="radio" name="q1"> Keeping quiet</label>
   <label><input type="radio" name="q1"> Making you happy 💖</label>
-  <button onclick="nextPage('page3')">Next ➜</button>
+  <button onclick="show('p3')">Next ➜</button>
 </div>
 
 <!-- PAGE 3 -->
-<div id="page3" class="page">
+<div id="p3" class="page">
   <h2>Question 2</h2>
   <p>What is the favorite thing you want me to do with you?</p>
   <label><input type="radio" name="q2"> Ride</label>
   <label><input type="radio" name="q2"> Eating together</label>
   <label><input type="radio" name="q2"> Chit chatting 💬</label>
   <label><input type="radio" name="q2"> Arguing</label>
-  <button onclick="nextPage('page4')">Next ➜</button>
+  <button onclick="show('p4')">Next ➜</button>
 </div>
 
 <!-- PAGE 4 -->
-<div id="page4" class="page">
+<div id="p4" class="page">
   <h1>Happy Birthday Chinni 🎂</h1>
   <p>The prettiest soul I know</p>
 
-  <img src="photo1.jpg">
-  <img src="photo2.jpg">
-  <img src="photo3.jpg">
-  <img src="photo4.jpg">
-  <img src="photo5.jpg">
-  <img src="photo6.jpg">
-  <img src="photo7.jpg">
-  <img src="photo8.jpg">
-  <img src="photo9.jpg">
-  <img src="photo10.jpg">
+  <div class="gallery">
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+    <img src="photo4.jpg">
+    <img src="photo5.jpg">
+    <img src="photo6.jpg">
+    <img src="photo7.jpg">
+    <img src="photo8.jpg">
+    <img src="photo9.jpg">
+    <img src="photo10.jpg">
+  </div>
 
-  <button onclick="nextPage('page5')">Next 💌</button>
+  <button onclick="show('p5')">Next 💌</button>
 </div>
 
 <!-- PAGE 5 -->
-<div id="page5" class="page">
-  <h2>From My Heart 🤍</h2>
+<div id="p5" class="page">
+  <h2>From My Heart</h2>
   <p>
-    <!-- WRITE YOUR LETTER HERE -->
+    <!-- ✏️ WRITE YOUR LETTER HERE -->
     Happy Birthday Chinni…<br><br>
     Write your paragraph here.  
-    This page is only for your feelings 💕
+    Keep it soft, real, and from the heart 🌹
   </p>
-  <button onclick="nextPage('page6')">Next 🎥</button>
+  <button onclick="show('p6')">Next 🎥</button>
 </div>
 
 <!-- PAGE 6 -->
-<div id="page6" class="page">
-  <h2>A Small Piece of Us 🎥</h2>
+<div id="p6" class="page">
+  <h2>A Small Piece of Us</h2>
   <video controls playsinline>
     <source src="video.mp4" type="video/mp4">
   </video>
-  <button onclick="nextPage('page7')">One Last Thing 💖</button>
+  <button onclick="show('p7')">One Last Thing 💖</button>
 </div>
 
 <!-- PAGE 7 -->
-<div id="page7" class="page">
-  <h1>I’m always here 🤍</h1>
-  <p>No matter what… I’ll be right here.</p>
+<div id="p7" class="page">
+  <h1>I’m always here 🌹</h1>
+  <p>No matter what… I’ll always be right here for you.</p>
 </div>
 
 </body>
