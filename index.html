@@ -535,7 +535,8 @@ document.querySelectorAll('.photo-block').forEach(block => {
   </p>
   
   <!-- THIS BUTTON IS REQUIRED -->
-  <button onclick="show('p8')">Next 🤍</button>
+<button onclick="show('p8')">One last thing 🤍</button>
+
 </div>
 <!-- PAGE 8 : QUESTION 1 -->
 <div id="p8" class="page">
@@ -546,44 +547,22 @@ document.querySelectorAll('.photo-block').forEach(block => {
   <button onclick="show('p9')">Next</button>
 </div>
 
-<!-- PAGE 9 : QUESTION 2 -->
-<div id="p9" class="page">
-
-  <p>Tell me honestly 🤍</p>
-
-  <button onclick="showYes()">Yes 🤍</button>
-  <button onclick="showNo()">No</button>
-
-  <div id="yesBox" style="display:none; margin-top:20px;">
-    <p>If yes, write about your day or anything you want to tell me 🌸</p>
-    <textarea style="width:90%; height:120px;"></textarea>
-  </div>
-
-  <div id="noBox" style="display:none; margin-top:20px;">
-    <p>If no, please tell me why and what the problem is 🤍</p>
-    <textarea style="width:90%; height:120px;"></textarea>
-  </div>
-
-</div>
-
-<script>
-function showYes(){
-  document.getElementById('yesBox').style.display = 'block';
-  document.getElementById('noBox').style.display = 'none';
-}
-function showNo(){
-  document.getElementById('noBox').style.display = 'block';
-  document.getElementById('yesBox').style.display = 'none';
-}
-</script>
-<!-- PAGE 9 : FINAL QUESTIONS -->
-<!-- PAGE 9 : FINAL SUBMISSION -->
-<div id="p9" class="page">
-  <h2>Tell me honestly 🤍</h2>
+<!-- PAGE 8 : GOOGLE FORM -->
+<div id="p8" class="page">
+  <h2>One last thing 🤍</h2>
 
   <p style="font-size:16px; color:#6b4b4b;">
     Whatever you feel, please write it freely 🌸
   </p>
+
+  <iframe
+    src="https://docs.google.com/forms/d/e/1FAIpQLSf37W294HYxflelmCblkoI8KfMT_qVRPxazkraaBYutX96pDw/viewform?embedded=true"
+    width="100%"
+    height="900"
+    frameborder="0">
+    Loading…
+  </iframe>
+</div>
 
 <iframe
   src="https://docs.google.com/forms/d/e/1FAIpQLSf37W294HYxflelmCblkoI8KfMT_qVRPxazkraaBYutX96pDw/viewform?embedded=true"
@@ -599,6 +578,7 @@ function showNo(){
 
 </body>
 </html>
+
 
 
 
