@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>For My Girl 🧿💙</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
 
 <style>
 /* ===== LUXURY PALETTE ===== */
@@ -145,6 +146,27 @@ video{
   color:var(--rose);
   letter-spacing:0.4px;
   opacity:0.9;
+}
+/* ===== PHOTO + CAPTION (ANIMATED) ===== */
+.photo-block{
+  margin:30px 0 42px;
+}
+
+.photo-caption{
+  margin-top:14px;
+  font-family: 'Sacramento', cursive;
+  font-size:22px;
+  color:var(--rose);
+  letter-spacing:0.6px;
+  opacity:0;
+  transform:translateY(12px);
+  transition: opacity 1.6s ease, transform 1.6s ease;
+}
+
+/* When visible */
+.photo-block.visible .photo-caption{
+  opacity:1;
+  transform:translateY(0);
 }
 
 </style>
@@ -340,9 +362,26 @@ function startSurprise(){
   <h1>I’m always here 🌹</h1>
   <p>No matter what… I’ll always be right here for you.</p>
 </div>
+<script>
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  },
+  { threshold: 0.6 }
+);
+
+document.querySelectorAll('.photo-block').forEach(block => {
+  observer.observe(block);
+});
+</script>
 
 </body>
 </html>
+
 
 
 
