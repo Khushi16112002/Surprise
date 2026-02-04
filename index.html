@@ -7,592 +7,193 @@
 <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
 
 <style>
-/* ===== LUXURY PALETTE ===== */
 :root{
-  --bg-light:#f7f2ee;
-  --bg-mid:#efe6df;
-  --bg-deep:#e7ddd6;
+  --bg:#f7f2ee;
   --rose:#8b5e5e;
-  --rose-soft:#b07a7a;
   --text:#3b2f2f;
-  --muted:#6b5b5b;
 }
 
-
-/* ===== BASE ===== */
 html,body{
   margin:0;
-  font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
-  background: linear-gradient(
-    180deg,
-    var(--bg-light) 0%,
-    var(--bg-mid) 50%,
-    var(--bg-deep) 100%
-  );
+  font-family:'Segoe UI', system-ui, sans-serif;
+  background:var(--bg);
   color:var(--text);
   text-align:center;
 }
-
 
 .page{
   display:none;
-  padding:64px 18px;
   min-height:100vh;
+  padding:60px 20px;
 }
+
 .page.active{display:block}
 
-/* ===== TYPOGRAPHY ===== */
-h1{
-  font-size:36px;
-  letter-spacing:.4px;
-  color:var(--rose);
-  animation:fadeZoom 1.6s ease-out;
-}
+h1,h2{color:var(--rose)}
+p{line-height:1.8}
 
-h2{
-  color:var(--rose);
-  margin-bottom:8px;
-}
-
-p{
-  font-size:17px;
-  line-height:1.8;
-  color:var(--muted);
-}
-
-
-/* ===== BUTTON ===== */
 button{
-  margin-top:28px;
-  padding:12px 34px;
-  border-radius:999px;
-  border:1px solid rgba(139,94,94,0.35);
-  background: linear-gradient(
-    135deg,
-    #f3e2dc,
-    #e9cfc6
-  );
-  color:#3b2f2f;
+  margin-top:25px;
+  padding:12px 30px;
+  border-radius:30px;
+  border:none;
+  background:#e9cfc6;
   font-weight:600;
-  letter-spacing:.3px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.12);
   cursor:pointer;
 }
 
-button:active{transform:translateY(1px)}
-
-/* ===== QUESTIONS ===== */
 label{
   display:block;
   margin:10px auto;
-  max-width:420px;
-  padding:10px 14px;
-  border-radius:14px;
-  border:1px solid rgba(230,179,179,.18);
-  background:rgba(255,255,255,.03);
-  color:var(--text);
+  max-width:400px;
+  padding:10px;
+  border-radius:12px;
+  background:#fff;
 }
 
-/* ===== PHOTOS ===== */
-.gallery img{
-  width:86%;
-  max-width:340px;
-  border-radius:22px;
-  margin:18px 0;
-  opacity:0;
-  animation:photoFade 2.2s forwards;
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.55),
-    0 0 0 1px rgba(230,179,179,.15);
+/* Photos */
+.photo{
+  width:90%;
+  max-width:320px;
+  border-radius:20px;
+  margin:20px 0;
 }
-.gallery img:nth-child(1){animation-delay:.6s}
-.gallery img:nth-child(2){animation-delay:2.0s}
-.gallery img:nth-child(3){animation-delay:3.4s}
-.gallery img:nth-child(4){animation-delay:4.8s}
-.gallery img:nth-child(5){animation-delay:6.2s}
-.gallery img:nth-child(6){animation-delay:7.6s}
-.gallery img:nth-child(7){animation-delay:9.0s}
-.gallery img:nth-child(8){animation-delay:10.4s}
-.gallery img:nth-child(9){animation-delay:11.8s}
-.gallery img:nth-child(10){animation-delay:13.2s}
-
-/* ===== VIDEO ===== */
-video{
-  width:92%;
-  max-width:380px;
-  border-radius:22px;
-  margin-top:26px;
-  box-shadow:
-    0 22px 60px rgba(0,0,0,.6),
-    0 0 0 1px rgba(230,179,179,.18);
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeZoom{
-  from{opacity:0; transform:scale(.9)}
-  to{opacity:1; transform:scale(1)}
-}
-@keyframes photoFade{
-  from{opacity:0; transform:translateY(24px)}
-  to{opacity:1; transform:translateY(0)}
-}
-  /* ===== PHOTO + CAPTION ===== */
-.photo-block{
-  margin:26px 0 36px;
-}
-
-.photo-block img{
-  width:86%;
-  max-width:340px;
-  border-radius:22px;
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.55),
-    0 0 0 1px rgba(230,179,179,.15);
-}
-
-.photo-caption{
-  margin-top:14px;
-  font-family: 'Sacramento', cursive;
-  font-size:22px;
-  color:var(--rose-soft);
-  letter-spacing:0.6px;
-  opacity:0;
-  transform:translateY(12px);
-  transition: opacity 1.6s ease, transform 1.6s ease;
-}
-
-/* ===== PHOTO + CAPTION (ANIMATED) ===== */
-.photo-block{
-  margin:30px 0 42px;
-}
-
-.photo-caption{
-  margin-top:14px;
-  font-family: 'Sacramento', cursive;
-  font-size:22px;
-  color:var(--rose);
-  letter-spacing:0.6px;
-  opacity:0;
-  transform:translateY(12px);
-  transition: opacity 1.6s ease, transform 1.6s ease;
-}
-
-/* When visible */
-.photo-block.visible .photo-caption{
-  opacity:1;
-  transform:translateY(0);
-}
-/* ===== DIARY PAGE LOOK ===== */
-.page{
-  position: relative;
-  max-width: 720px;
-  margin: 0 auto;
-  border-radius: 22px;
-  background: rgba(255,255,255,0.55);
-  box-shadow:
-    0 18px 40px rgba(0,0,0,0.12),
-    inset 0 1px 0 rgba(255,255,255,0.6);
-}
-  /* ===== PAPER TEXTURE EFFECT ===== */
-.page::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:22px;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(0,0,0,0.015),
-      rgba(0,0,0,0.015) 1px,
-      transparent 1px,
-      transparent 4px
-    );
-  pointer-events:none;
-}
-/* ===== LETTER PAGE SPECIAL BACKGROUND ===== */
-#p5{
-  background: linear-gradient(
-    180deg,
-    #fffaf6 0%,
-    #f3e6dd 100%
-  );
-}
-#p5 p{
-  font-size:18px;
-  line-height:1.9;
-}
-/* ===== PAGE TURN ANIMATION ===== */
-.page{
-  opacity:0;
-  transform: translateX(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.page.active{
-  opacity:1;
-  transform: translateX(0);
-}
-
-/* page going out */
-.page.exit{
-  opacity:0;
-  transform: translateX(-40px);
-}
-/* ===== LETTER PAGE HANDWRITTEN MODE ===== */
-#p5{
-  background: linear-gradient(
-    180deg,
-    #fffaf6 0%,
-    #f3e6dd 100%
-  );
-}
-
-#p5 p{
-  font-family: 'Sacramento', cursive;
-  font-size:22px;
-  line-height:2;
-  color:#5a3e3e;
-  letter-spacing:0.5px;
-}
-
-#p5 h2{
-  font-family: 'Sacramento', cursive;
-  font-size:28px;
-}
-.photo-caption{
-  text-align:center;
-}
-
-.photo-caption .line1{
-  font-family:'Sacramento', cursive;
-  font-size:22px;
-  color:var(--rose-soft);
-}
-
-.photo-caption .line2{
-  margin-top:6px;
-  font-size:14px;
-  color:#7a5a5a;
-  opacity:0;
-  transition:opacity 2s ease;
-}
-
-/* second line appears after first */
-.photo-block.visible .line2{
-  opacity:1;
-  transition-delay:2s;
-}
-<div id="p7" class="page">
-  <h1 style="font-family:'Sacramento', cursive; font-size:42px;">
-    I’m always here
-  </h1>
-
-  <p style="font-size:15px; color:#7a5a5a; margin-top:10px;">
-    no matter what
-  </p>
-
-  <!-- FINAL PARAGRAPH GOES HERE -->
-  <p id="final-note" style="
-    margin-top:50px;
-    font-family:'Sacramento', cursive;
-    font-size:22px;
-    color:#5a3e3e;
-    line-height:1.9;
-  ">
-    <!-- you will send this paragraph -->
-  </p>
-</div>
-
 </style>
 
 <script>
 function show(id){
-  const current = document.querySelector('.page.active');
-  const next = document.getElementById(id);
-
-  if(current){
-    current.classList.remove('active');
-    current.classList.add('exit');
-
-    setTimeout(()=>{
-      current.classList.remove('exit');
-    },600);
-  }
-
-  next.classList.add('active');
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
 
-function startSurprise(){
-  const m=document.getElementById('music');
-  m.muted=false;               // required for mobile
-  m.play().catch(()=>{});      // play after click
-  show('p2');
+/* LOGIN CHECK */
+function checkAnswer(name, correct, next){
+  const opts = document.getElementsByName(name);
+  for(let o of opts){
+    if(o.checked){
+      if(o.value === correct){
+        show(next);
+      }else{
+        alert("Try once more 🙂");
+      }
+      return;
+    }
+  }
+  alert("Please select an option");
+}
+
+/* FINAL */
+function finalYes(){
+  document.getElementById("finalMsg").innerText =
+  "Thank you 🤍 We will sort things out. I love you.";
+}
+function finalNo(){
+  document.getElementById("finalMsg").innerText =
+  "Every human can make mistakes. I beg you to let us sort things out.";
+}
+function restart(){
+  show('login');
 }
 </script>
 </head>
 
 <body>
 
-<!-- MUSIC (starts after Login click) -->
-<audio id="music" loop muted>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<!-- PAGE 1 -->
-<div id="p1" class="page active">
-  <h1>This is only for you 😘❤️</h1>
-  <p>Something made with love, just for you</p>
-  <button onclick="startSurprise()">Login 🔐</button>
+<!-- LOGIN -->
+<div id="login" class="page active">
+  <h1>This is only for you 🤍</h1>
+  <button onclick="show('q1')">Login 🔐</button>
 </div>
 
-<!-- PAGE 2 -->
-<div id="p2" class="page">
+<!-- Q1 -->
+<div id="q1" class="page">
   <h2>Question 1</h2>
-  <p>What is the favorite thing you like that I do for you?</p>
-  <label><input type="radio" name="q1"> Irritating you</label>
-  <label><input type="radio" name="q1"> Fighting with you</label>
-  <label><input type="radio" name="q1"> Keeping quiet</label>
-  <label><input type="radio" name="q1"> Making you happy 💖</label>
-  <button onclick="show('p3')">Next ➜</button>
+  <p>What is the first nickname I kept for you?</p>
+  <label><input type="radio" name="q1" value="wrong"> Akka</label>
+  <label><input type="radio" name="q1" value="right"> Chinni</label>
+  <label><input type="radio" name="q1" value="wrong"> Senior</label>
+  <button onclick="checkAnswer('q1','right','q2')">Next</button>
 </div>
 
-<!-- PAGE 3 -->
-<div id="p3" class="page">
+<!-- Q2 -->
+<div id="q2" class="page">
   <h2>Question 2</h2>
-  <p>What is the favorite thing you want me to do with you?</p>
-  <label><input type="radio" name="q2"> Ride</label>
-  <label><input type="radio" name="q2"> Eating together</label>
-  <label><input type="radio" name="q2"> Chit chatting 💬</label>
-  <label><input type="radio" name="q2"> Arguing</label>
-  <button onclick="show('p4')">Next ➜</button>
+  <p>Where did we go without telling our family?</p>
+  <label><input type="radio" name="q2" value="wrong"> Sringeri</label>
+  <label><input type="radio" name="q2" value="right"> Kuppali</label>
+  <label><input type="radio" name="q2" value="wrong"> Mysore</label>
+  <button onclick="checkAnswer('q2','right','q3')">Next</button>
 </div>
 
-<!-- PAGE 4 -->
-<div id="p4" class="page">
-  <h1>Happy Birthday Chinni  🧿💙</h1>
+<!-- Q3 -->
+<div id="q3" class="page">
+  <h2>Question 3</h2>
+  <p>Colour of the top I gifted you?</p>
+  <label><input type="radio" name="q3" value="wrong"> Red</label>
+  <label><input type="radio" name="q3" value="right"> Light Blue</label>
+  <label><input type="radio" name="q3" value="wrong"> Navy Blue</label>
+  <button onclick="checkAnswer('q3','right','q4')">Next</button>
+</div>
+
+<!-- Q4 -->
+<div id="q4" class="page">
+  <h2>Question 4</h2>
+  <p>What do you like that I do for you?</p>
+  <label><input type="radio" name="q4" value="wrong"> Fighting</label>
+  <label><input type="radio" name="q4" value="right"> Making you happy</label>
+  <label><input type="radio" name="q4" value="wrong"> Irritating</label>
+  <button onclick="checkAnswer('q4','right','q5')">Next</button>
+</div>
+
+<!-- Q5 -->
+<div id="q5" class="page">
+  <h2>Question 5</h2>
+  <p>Where do you want to go with me?</p>
+  <label><input type="radio" name="q5" value="wrong"> Mysore</label>
+  <label><input type="radio" name="q5" value="right"> Resort</label>
+  <label><input type="radio" name="q5" value="wrong"> Adiyogi</label>
+  <button onclick="checkAnswer('q5','right','birthday')">Enter 💖</button>
+</div>
+
+<!-- BIRTHDAY -->
+<div id="birthday" class="page">
+  <h1>Happy Birthday Chinni 🧿💙</h1>
   <p>The prettiest soul I know</p>
-
- <div class="gallery">
-
-  <div class="photo-block">
-    <img src="photo1.jpg">
-    <div class="photo-caption">Where we had so excitment of meeting each each other</div>
-  </div>
-
-  <div class="photo-block">
-    <img src="photo2.jpg">
-    <div class="photo-caption">where your tears dropped when i was in pain </div>
-  </div>
-
-  <div class="photo-block">
-    <img src="photo3.jpg">
-    <div class="photo-caption">where our crazyness met stage </div>
-  </div>
-
-  <div class="photo-block">
-    <img src="photo4.jpg">
-    <div class="photo-caption">where the days filled with pure love and connections</div>
-  </div>
-
-  <div class="photo-block">
-    <img src="photo5.jpg">
-    <div class="photo-caption">where our fun and laughters brust out </div>
-  </div>
-
-  <div class="photo-block">
-    <img src="photo6.jpg">
-    <div class="photo-caption">where the early birds started enjoying </div>
-  </div>
-
-  <div class="photo-block">
-    <img src="photo7.jpg">
-    <div class="photo-caption">where the kiss meant for lasted the friendship</div>
-  </div>
-
-  <div class="photo-block">
-    <img src="photo8.jpg">
-    <div class="photo-caption">where birthdays meant to cuddle each other</div>
-  </div>
-
-  <div class="photo-block">
-    <img src="photo9.jpg">
-    <div class="photo-caption">where started exploring each other </div>
-  </div>
-
-  <div class="photo-block">
-    <img src="photo10.jpg">
-    <div class="photo-caption">where unexpected meet made the best memory</div>
-  </div>
-
+  <img src="photo1.jpg" class="photo">
+  <img src="photo2.jpg" class="photo">
+  <img src="photo3.jpg" class="photo">
+  <button onclick="show('video')">Next 🎥</button>
 </div>
 
-
-  <button onclick="show('p5')">Next 💌</button>
-</div>
-
-<!-- PAGE 5 -->
-<div id="p5" class="page">
-  <h2>From My Heart</h2>
- <p>
-  <strong>Happy Birthday Chinni 🧿💙</strong><br><br>
-
-  Hai… keep a smile on your face and start reading 🤍  
-  This is the 5th year of celebrating your birthday.  
-  Every birthday of yours feels like a festival to me —  
-  I celebrate it as my own day.  
-
-  <br><br>
-
-  This year feels more special, more overwhelming,  
-  because it brings a chance to repair, rebuild,  
-  reconsider, and realign everything that matters.  
-
-  <br><br>
-
-  You will always have a special place in my heart.  
-  I was blessed with a best friend like you —  
-  and every single time you come back into my life,  
-  you win my heart all over again.  
-
-  <br><br>
-
-  This is a small surprise.  
-  I’ve never tried something like this before,  
-  but using my favorite thing — coding —  
-  just to bring a small smile on your face  
-  makes me feel peaceful and happy.  
-
-  <br><br>
-
-  The most important part…  
-  I know things between us were not that good.  
-  I truly hope they start getting better from today.  
-  Whatever mistakes I made were my responsibility,  
-  and I should have handled things better.  
-
-  <br><br>
-
-  From the bottom of my heart,  
-  I am really sorry for all my habits — old or new —  
-  that hurt you in any way.  
-  Please forgive me.  
-
-  <br><br>
-
-  At last, I just want to say this clearly:  
-  I am sorry for everything I have done in the past year.  
-  I miss you more than words can explain.  
-  I love you — and more than that,  
-  I truly value you.  
-
-  <br><br>
-
-  <em>Yours always,</em><br>
-  <strong>Acchu 💖</strong>
-</p>
-
-  <button onclick="show('p6')">Next 🎥</button>
-</div>
-
-<!-- PAGE 6 -->
-<div id="p6" class="page">
+<!-- VIDEO -->
+<div id="video" class="page">
   <h2>A Small Piece of Us</h2>
-  <video controls playsinline>
+  <video controls width="90%">
     <source src="video.mp4" type="video/mp4">
   </video>
-  <button onclick="show('p7')">One Last Thing 💖</button>
+  <button onclick="show('letter')">Next 💌</button>
 </div>
-<script>
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-      }
-    });
-  },
-  { threshold: 0.6 }
-);
 
-document.querySelectorAll('.photo-block').forEach(block => {
-  observer.observe(block);
-});
-</script>
-<!-- PAGE 7 -->
-<div id="p7" class="page">
-  <h1>I’m always here  😘😘😘 </h1>
-
-  <p>No matter what… I’ll always be right here for you.</p>
-
-  <p style="
-    margin-top:40px;
-    font-family:'Sacramento', cursive;
-    font-size:22px;
-    line-height:1.9;
-    color:#5a3e3e;
-  ">
-   E nanna sanna efforts ninge esta aythu ankoltini, yaru madilla ankoltini, nang gottilla yavdunna heg express madbeku antha nang gottilla nan olled madtidina kettuda antha time togo yochne madu aml helu , hegittu evattin day Yella , hope Yella ista aythu antha , and nanninda agiro Yella tappige sorry , gifts esta aytha ?? , enyavattu nan ninninda doora hogolla ed nan promise. Wish you many more happy returns of the day , I love you moreee and to the mooon 😘😘
+<!-- LETTER -->
+<div id="letter" class="page">
+  <h2>From My Heart</h2>
+  <p style="font-family:'Sacramento',cursive;font-size:22px;">
+    E nanna sanna efforts ninge esta aythu ankoltini...  
+    I love you moreee and to the moon 😘😘
   </p>
-  
-  <!-- THIS BUTTON IS REQUIRED -->
-<button onclick="show('p8')">One last thing 🤍</button>
-
-</div>
-<!-- PAGE 8 : QUESTION 1 -->
-<div id="p8" class="page">
-  <h2>One honest question 🤍</h2>
-
-  <p>Will you give me a chance?</p>
-
-  <button onclick="show('p9')">Next</button>
+  <button onclick="show('final')">One last thing 🤍</button>
 </div>
 
-<!-- PAGE 8 : GOOGLE FORM -->
-<div id="p8" class="page">
-  <h2>One last thing 🤍</h2>
-
-  <p style="font-size:16px; color:#6b4b4b;">
-    Whatever you feel, please write it freely 🌸
+<!-- FINAL -->
+<div id="final" class="page">
+  <h2>Will you give me another chance?</h2>
+  <button onclick="finalYes()">Yes 🤍</button>
+  <button onclick="finalNo()">No</button>
+  <p id="finalMsg"
+     style="margin-top:20px;font-family:'Sacramento',cursive;font-size:22px;">
   </p>
-
-  <iframe
-    src="https://docs.google.com/forms/d/e/1FAIpQLSf37W294HYxflelmCblkoI8KfMT_qVRPxazkraaBYutX96pDw/viewform?embedded=true"
-    width="100%"
-    height="900"
-    frameborder="0">
-    Loading…
-  </iframe>
-</div>
-
-<iframe
-  src="https://docs.google.com/forms/d/e/1FAIpQLSf37W294HYxflelmCblkoI8KfMT_qVRPxazkraaBYutX96pDw/viewform?embedded=true"
-  width="100%"
-  height="900"
-  frameborder="0"
-  marginheight="0"
-  marginwidth="0">
-  Loading…
-</iframe>
-
+  <button onclick="restart()">Submit</button>
 </div>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
