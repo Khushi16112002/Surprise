@@ -221,6 +221,23 @@ video{
   font-size:18px;
   line-height:1.9;
 }
+/* ===== PAGE TURN ANIMATION ===== */
+.page{
+  opacity:0;
+  transform: translateX(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.page.active{
+  opacity:1;
+  transform: translateX(0);
+}
+
+/* page going out */
+.page.exit{
+  opacity:0;
+  transform: translateX(-40px);
+}
 
 </style>
 
@@ -434,6 +451,7 @@ document.querySelectorAll('.photo-block').forEach(block => {
 
 </body>
 </html>
+
 
 
 
