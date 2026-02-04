@@ -125,6 +125,28 @@ video{
   from{opacity:0; transform:translateY(24px)}
   to{opacity:1; transform:translateY(0)}
 }
+  /* ===== PHOTO + CAPTION ===== */
+.photo-block{
+  margin:26px 0 36px;
+}
+
+.photo-block img{
+  width:86%;
+  max-width:340px;
+  border-radius:22px;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.55),
+    0 0 0 1px rgba(230,179,179,.15);
+}
+
+.photo-caption{
+  margin-top:12px;
+  font-size:15px;
+  color:var(--rose);
+  letter-spacing:0.4px;
+  opacity:0.9;
+}
+
 </style>
 
 <script>
@@ -182,18 +204,60 @@ function startSurprise(){
   <h1>Happy Birthday Chinni  🧿💙</h1>
   <p>The prettiest soul I know</p>
 
-  <div class="gallery">
+ <div class="gallery">
+
+  <div class="photo-block">
     <img src="photo1.jpg">
-    <img src="photo2.jpg">
-    <img src="photo3.jpg">
-    <img src="photo4.jpg">
-    <img src="photo5.jpg">
-    <img src="photo6.jpg">
-    <img src="photo7.jpg">
-    <img src="photo8.jpg">
-    <img src="photo9.jpg">
-    <img src="photo10.jpg">
+    <div class="photo-caption">Where we had so excitment of meeting each each other</div>
   </div>
+
+  <div class="photo-block">
+    <img src="photo2.jpg">
+    <div class="photo-caption">where your tears dropped when i was in pain </div>
+  </div>
+
+  <div class="photo-block">
+    <img src="photo3.jpg">
+    <div class="photo-caption">where our crazyness met stage </div>
+  </div>
+
+  <div class="photo-block">
+    <img src="photo4.jpg">
+    <div class="photo-caption">where the days filled with pure love and connections</div>
+  </div>
+
+  <div class="photo-block">
+    <img src="photo5.jpg">
+    <div class="photo-caption">where our fun and laughters brust out </div>
+  </div>
+
+  <div class="photo-block">
+    <img src="photo6.jpg">
+    <div class="photo-caption">where the early birds started enjoying </div>
+  </div>
+
+  <div class="photo-block">
+    <img src="photo7.jpg">
+    <div class="photo-caption">where the kiss meant for lasted the friendship</div>
+  </div>
+
+  <div class="photo-block">
+    <img src="photo8.jpg">
+    <div class="photo-caption">where birthdays meant to cuddle each other</div>
+  </div>
+
+  <div class="photo-block">
+    <img src="photo9.jpg">
+    <div class="photo-caption">where started exploring each other </div>
+  </div>
+
+  <div class="photo-block">
+    <img src="photo10.jpg">
+    <div class="photo-caption">where unexpected meet made the best memory</div>
+  </div>
+
+</div>
+
 
   <button onclick="show('p5')">Next 💌</button>
 </div>
@@ -279,6 +343,7 @@ function startSurprise(){
 
 </body>
 </html>
+
 
 
 
