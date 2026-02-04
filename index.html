@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>For My Girl 🧿💙</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
 
 <style>
@@ -50,11 +51,25 @@ label{
   background:#fff;
 }
 
-.photo{
-  width:90%;
-  max-width:320px;
+/* SLIDER */
+.slider{
+  display:flex;
+  overflow-x:auto;
+  gap:15px;
+  scroll-snap-type:x mandatory;
+}
+.slide{
+  flex:0 0 85%;
+  scroll-snap-align:center;
+}
+.slide img{
+  width:100%;
   border-radius:20px;
-  margin:18px 0;
+}
+.caption{
+  margin-top:8px;
+  font-size:14px;
+  opacity:.8;
 }
 </style>
 
@@ -81,12 +96,12 @@ function checkAnswer(name, correct, next){
 
 function finalYes(){
   document.getElementById("finalMsg").innerText =
-  "Thank you 🤍 We will sort things out. I love you.";
+  "I’m sorry for whatever I’ve done. We’ll sit and sort everything out 🤍";
 }
 
 function finalNo(){
   document.getElementById("finalMsg").innerText =
-  "Every human can make corrections. I beg you to let us sort things out.";
+  "Every person needs a chance. I beg you to let us sort things out.";
 }
 
 function restart(){
@@ -107,9 +122,9 @@ function restart(){
 <div id="q1" class="page">
 <h2>Question 1</h2>
 <p>What is the first nickname I kept for you?</p>
+<label><input type="radio" name="q1" value="right"> Senior</label>
 <label><input type="radio" name="q1" value="wrong"> Akka</label>
-<label><input type="radio" name="q1" value="right"> Chinni</label>
-<label><input type="radio" name="q1" value="wrong"> Senior</label>
+<label><input type="radio" name="q1" value="wrong"> Chinni</label>
 <label><input type="radio" name="q1" value="wrong"> Alburki</label>
 <button onclick="checkAnswer('q1','right','q2')">Next</button>
 </div>
@@ -118,10 +133,10 @@ function restart(){
 <div id="q2" class="page">
 <h2>Question 2</h2>
 <p>Where did we go without telling our family?</p>
+<label><input type="radio" name="q2" value="right"> Sunset Point</label>
 <label><input type="radio" name="q2" value="wrong"> Sringeri</label>
 <label><input type="radio" name="q2" value="wrong"> Balgadi</label>
-<label><input type="radio" name="q2" value="right"> Kuppali</label>
-<label><input type="radio" name="q2" value="wrong"> Sunset Point</label>
+<label><input type="radio" name="q2" value="wrong"> Kuppali</label>
 <button onclick="checkAnswer('q2','right','q3')">Next</button>
 </div>
 
@@ -129,9 +144,9 @@ function restart(){
 <div id="q3" class="page">
 <h2>Question 3</h2>
 <p>Which colour top did I gift you?</p>
+<label><input type="radio" name="q3" value="right"> Light Blue</label>
 <label><input type="radio" name="q3" value="wrong"> Red</label>
 <label><input type="radio" name="q3" value="wrong"> Navy Blue</label>
-<label><input type="radio" name="q3" value="right"> Light Blue</label>
 <label><input type="radio" name="q3" value="wrong"> Dark Blue</label>
 <button onclick="checkAnswer('q3','right','q4')">Next</button>
 </div>
@@ -140,10 +155,10 @@ function restart(){
 <div id="q4" class="page">
 <h2>Question 4</h2>
 <p>What do you like that I do for you?</p>
+<label><input type="radio" name="q4" value="right"> Making you happy</label>
 <label><input type="radio" name="q4" value="wrong"> Irritating</label>
 <label><input type="radio" name="q4" value="wrong"> Fighting</label>
 <label><input type="radio" name="q4" value="wrong"> Keeping quiet</label>
-<label><input type="radio" name="q4" value="right"> Making you happy</label>
 <button onclick="checkAnswer('q4','right','q5')">Next</button>
 </div>
 
@@ -151,35 +166,39 @@ function restart(){
 <div id="q5" class="page">
 <h2>Question 5</h2>
 <p>Where do you want to go with me?</p>
+<label><input type="radio" name="q5" value="right"> Adhiyogi</label>
 <label><input type="radio" name="q5" value="wrong"> Mysore</label>
-<label><input type="radio" name="q5" value="wrong"> Adhiyogi</label>
-<label><input type="radio" name="q5" value="right"> Resort</label>
+<label><input type="radio" name="q5" value="wrong"> Resort</label>
 <label><input type="radio" name="q5" value="wrong"> Spot</label>
 <button onclick="checkAnswer('q5','right','birthday')">Enter 💖</button>
 </div>
 
-<!-- BIRTHDAY -->
+<!-- SLIDER -->
 <div id="birthday" class="page">
 <h1>Happy Birthday Chinni 🧿💙</h1>
-<img src="photo1.png" class="photo">
-<img src="photo2.png" class="photo">
-<img src="photo3.png" class="photo">
-<img src="photo4.png" class="photo">
-<img src="photo5.png" class="photo">
-<img src="photo6.png" class="photo">
-<img src="photo7.png" class="photo">
-<img src="photo8.png" class="photo">
-<img src="photo9.png" class="photo">
-<img src="photo10.png" class="photo">
-<button onclick="show('letter')">Next 💌</button>
+
+<div class="slider">
+  <div class="slide">
+    <img src="photo1.png">
+    <div class="caption">Our first memory 🤍</div>
+  </div>
+  <div class="slide">
+    <img src="photo2.png">
+    <div class="caption">Always with you</div>
+  </div>
+  <div class="slide">
+    <img src="photo3.png">
+    <div class="caption">My favourite</div>
+  </div>
 </div>
 
-<!-- LETTER -->
-<div id="letter" class="page">
+<button onclick="show('para1')">Next 💌</button>
+</div>
+
+<!-- PARAGRAPH 1 -->
+<div id="para1" class="page">
 <p style="font-family:'Sacramento',cursive;font-size:22px;">
-Happy Birthday Chinni 🧿💙  
-This is the 5th year of celebrating your birthday…  
-Yours always, Acchu 💖
+PASTE YOUR FIRST PARAGRAPH HERE
 </p>
 <button onclick="show('video')">Next 🎥</button>
 </div>
@@ -187,28 +206,31 @@ Yours always, Acchu 💖
 <!-- VIDEO -->
 <div id="video" class="page">
 <video controls width="90%">
-<source src="video.mp4" type="video/mp4">
+  <source src="video.mp4" type="video/mp4">
 </video>
-<button onclick="show('finaltext')">Next 🤍</button>
+<button onclick="show('para2')">Next 🤍</button>
 </div>
 
-<!-- FINAL PARAGRAPH -->
-<div id="finaltext" class="page">
+<!-- PARAGRAPH 2 -->
+<div id="para2" class="page">
 <p style="font-family:'Sacramento',cursive;font-size:22px;">
-E nanna sanna efforts ninge esta aythu ankoltini, yaru madilla ankoltini, nang gottilla yavdunna heg express madbeku antha nang gottilla nan olled madtidina kettuda antha time togo yochne madu aml helu , hegittu evattin day Yella , hope Yella ista aythu antha , and nanninda agiro Yella tappige sorry , gifts esta aytha ?? , enyavattu nan ninninda doora hogolla ed nan promise. Wish you many more happy returns of the day , I love you moreee and to the mooon 😘😘
+PASTE YOUR SECOND PARAGRAPH HERE
 </p>
 <button onclick="show('final')">One last thing 🤍</button>
 </div>
 
-<!-- FINAL QUESTION -->
+<!-- FINAL -->
 <div id="final" class="page">
-<h2>Will you give me another chance?</h2>
+<h2>Will you give me a chance?</h2>
+
 <button onclick="finalYes()">Yes 🤍</button>
 <button onclick="finalNo()">No</button>
-<p id="finalMsg" style="margin-top:20px;font-family:'Sacramento',cursive;font-size:22px;"></p>
+
+<p id="finalMsg"
+style="margin-top:20px;font-family:'Sacramento',cursive;font-size:22px;"></p>
+
 <button onclick="restart()">Submit</button>
 </div>
 
 </body>
 </html>
-
