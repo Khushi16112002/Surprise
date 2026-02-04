@@ -51,42 +51,46 @@ label{
   background:#fff;
 }
 
-<style>
-/* SLIDER (MOBILE LIKE IMAGE) */
+/* SLIDER WRAPPER */
 .slider{
   display:flex;
-  gap:20px;
+  gap:18px;
   overflow-x:auto;
   scroll-snap-type:x mandatory;
   -webkit-overflow-scrolling:touch;
-  padding:20px 10px;
+  padding:20px 12px 30px;
 }
 
 .slider::-webkit-scrollbar{
   display:none;
 }
 
+/* SLIDE CARD */
 .slide{
-  flex:0 0 80%;
+  flex:0 0 78%;
   scroll-snap-align:center;
-  position:relative;
+  background:#fff;
+  border-radius:20px;
+  padding:12px;
+  box-shadow:0 12px 28px rgba(0,0,0,0.12);
 }
 
+/* IMAGE FIX (NO ZOOM, FULL IMAGE) */
 .slide img{
   width:100%;
-  height:240px;
-  object-fit:cover;
-  border-radius:18px;
+  height:230px;
+  object-fit:contain;   /* 🔥 KEY FIX */
+  border-radius:16px;
+  background:#f2f2f2;   /* fills empty space nicely */
   display:block;
-  box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
+/* CAPTION */
 .caption{
   margin-top:10px;
   font-size:14px;
   opacity:0.85;
 }
-</style>
 
 </style>
 
@@ -195,55 +199,57 @@ function restart(){
 <h1>Happy Birthday Chinni 🧿💙</h1>
 
 <div class="slider">
+
   <div class="slide">
-    <img src="photo1.jpg">
+    <img src="photo1.jpg" alt="photo1">
     <div class="caption">Our first memory 🤍</div>
   </div>
 
   <div class="slide">
-    <img src="photo2.jpg">
+    <img src="photo2.jpg" alt="photo2">
     <div class="caption">Always with you</div>
   </div>
 
   <div class="slide">
-    <img src="photo3.jpg">
+    <img src="photo3.jpg" alt="photo3">
     <div class="caption">My favourite</div>
   </div>
 
   <div class="slide">
-    <img src="photo4.jpg">
+    <img src="photo4.jpg" alt="photo4">
     <div class="caption">You & me 💙</div>
   </div>
 
   <div class="slide">
-    <img src="photo5.jpg">
+    <img src="photo5.jpg" alt="photo5">
     <div class="caption">That smile</div>
   </div>
 
   <div class="slide">
-    <img src="photo6.jpg">
+    <img src="photo6.jpg" alt="photo6">
     <div class="caption">Forever memory</div>
   </div>
 
   <div class="slide">
-    <img src="photo7.jpg">
+    <img src="photo7.jpg" alt="photo7">
     <div class="caption">My comfort</div>
   </div>
 
   <div class="slide">
-    <img src="photo8.jpg">
+    <img src="photo8.jpg" alt="photo8">
     <div class="caption">Us 🤍</div>
   </div>
 
   <div class="slide">
-    <img src="photo9.jpg">
+    <img src="photo9.jpg" alt="photo9">
     <div class="caption">Pure happiness</div>
   </div>
 
   <div class="slide">
-    <img src="photo10.jpg">
+    <img src="photo10.jpg" alt="photo10">
     <div class="caption">Always you</div>
   </div>
+
 </div>
 
 
@@ -289,4 +295,5 @@ style="margin-top:20px;font-family:'Sacramento',cursive;font-size:22px;"></p>
 
 </body>
 </html>
+
 
