@@ -533,52 +533,39 @@ document.querySelectorAll('.photo-block').forEach(block => {
   ">
    E nanna sanna efforts ninge esta aythu ankoltini, yaru madilla ankoltini, nang gottilla yavdunna heg express madbeku antha nang gottilla nan olled madtidina kettuda antha time togo yochne madu aml helu , hegittu evattin day Yella , hope Yella ista aythu antha , and nanninda agiro Yella tappige sorry , gifts esta aytha ?? , enyavattu nan ninninda doora hogolla ed nan promise. Wish you many more happy returns of the day , I love you moreee and to the mooon 😘😘
   </p>
+  
+  <!-- THIS BUTTON IS REQUIRED -->
+  <button onclick="show('p8')">Next 🤍</button>
 </div>
 <!-- PAGE 8 : QUESTION 1 -->
 <div id="p8" class="page">
-  <h2>One question… 🤍</h2>
+  <h2>One honest question 🤍</h2>
 
-  <p style="font-size:18px;">
-    Will you give me a chance?
-  </p>
+  <p>Will you give me a chance?</p>
 
   <button onclick="show('p9')">Next</button>
 </div>
+
 <!-- PAGE 9 : QUESTION 2 -->
 <div id="p9" class="page">
 
-  <p style="font-size:18px; color:#5a3e3e;">
-    Tell me honestly 🤍
-  </p>
+  <p>Tell me honestly 🤍</p>
 
   <button onclick="showYes()">Yes 🤍</button>
-  <button onclick="showNo()" style="margin-left:10px;">No</button>
+  <button onclick="showNo()">No</button>
 
-  <!-- YES BOX -->
-  <div id="yesBox" style="display:none; margin-top:30px;">
+  <div id="yesBox" style="display:none; margin-top:20px;">
     <p>If yes, write about your day or anything you want to tell me 🌸</p>
-    <textarea style="
-      width:90%;
-      max-width:420px;
-      height:120px;
-      border-radius:14px;
-      padding:12px;
-    "></textarea>
+    <textarea style="width:90%; height:120px;"></textarea>
   </div>
 
-  <!-- NO BOX -->
-  <div id="noBox" style="display:none; margin-top:30px;">
+  <div id="noBox" style="display:none; margin-top:20px;">
     <p>If no, please tell me why and what the problem is 🤍</p>
-    <textarea style="
-      width:90%;
-      max-width:420px;
-      height:120px;
-      border-radius:14px;
-      padding:12px;
-    "></textarea>
+    <textarea style="width:90%; height:120px;"></textarea>
   </div>
 
 </div>
+
 <script>
 function showYes(){
   document.getElementById('yesBox').style.display = 'block';
@@ -593,6 +580,7 @@ function showNo(){
 
 </body>
 </html>
+
 
 
 
