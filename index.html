@@ -108,9 +108,9 @@ label{
 }
 
 .carousel__cell:not(.center){
-  opacity:0.55;
-  filter:blur(1px);
+  opacity:0.65;
 }
+
 
 /* 🔥 ROTATE ON HOVER */
 .carousel-container:hover .carousel{
@@ -121,9 +121,6 @@ label{
   from{transform:translateZ(-520px) rotateY(0deg);}
   to{transform:translateZ(-520px) rotateY(360deg);}
 }
-
-
-
 .caption{
   margin-top:12px;
   font-family:'Sacramento',cursive;
@@ -131,36 +128,6 @@ label{
   text-align:center;
   opacity:0.9;
 }
-
-.letter{
-  max-width:520px;
-  margin:0 auto;
-  padding:26px 22px;
-  background:#fff;
-  border-radius:22px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-  font-family:'Sacramento',cursive;
-  font-size:21px;
-  line-height:2;
-  color:#3b2f2f;
-  text-align:left;
-}
-
-.letter strong{
-  font-size:26px;
-  display:block;
-  text-align:center;
-  margin-bottom:10px;
-}
-
-.letter em{
-  display:block;
-  margin-top:20px;
-}
-  .diary{
-  backdrop-filter:blur(2px);
-}
-
 .page{
   animation:fadeIn 0.6s ease;
 }
@@ -187,18 +154,6 @@ label{
   text-align:left;
   position:relative;
 }
-
-/* diary binding line */
-.diary::before{
-  content:'';
-  position:absolute;
-  left:18px;
-  top:20px;
-  bottom:20px;
-  width:2px;
-  background:#e6cfc4;
-}
-
 .diary h3{
   text-align:center;
   font-size:28px;
@@ -208,16 +163,6 @@ label{
 .diary em{
   display:block;
   margin-top:22px;
-}
-/* PAPER TEXTURE BACKGROUND */
-body{
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      #fffdf9,
-      #fffdf9 28px,
-      #f6efe8 29px
-    );
 }
 
 </style>
@@ -344,10 +289,6 @@ function restart(){
   </div>
 
   <button onclick="show('para1')">Turn the page ➜</button>
-</div>
-
-
-<button onclick="show('para1')">Next 💌</button>
 </div>
 
 <div id="para1" class="page">
@@ -487,13 +428,15 @@ carousel.addEventListener("click",()=>{
 
 /* ✨ AUTO SLOW DRIFT */
 setInterval(()=>{
-  index += 0.02;
+  index += 0.01;
   rotateCarousel();
-},60);
+},200);
+
 </script>
 
 </body>
 </html>
+
 
 
 
