@@ -243,9 +243,21 @@ video{
 
 <script>
 function show(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  const current = document.querySelector('.page.active');
+  const next = document.getElementById(id);
+
+  if(current){
+    current.classList.remove('active');
+    current.classList.add('exit');
+
+    setTimeout(()=>{
+      current.classList.remove('exit');
+    },600);
+  }
+
+  next.classList.add('active');
 }
+
 function startSurprise(){
   const m=document.getElementById('music');
   m.muted=false;               // required for mobile
@@ -451,6 +463,7 @@ document.querySelectorAll('.photo-block').forEach(block => {
 
 </body>
 </html>
+
 
 
 
