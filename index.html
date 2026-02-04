@@ -59,51 +59,69 @@ label{
   background:#fff;
 }
 
-/* PHOTO DIARY */
-.slider{
-  display:flex;
-  gap:22px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  padding:24px 16px 36px;
-}
-
-.slider::-webkit-scrollbar{display:none;}
-
-.slide{
-  flex:0 0 76%;
-  scroll-snap-align:center;
-  background:linear-gradient(135deg,#f9efe6,#fdfaf7);
-  border-radius:24px;
-  padding:16px;
-  box-shadow:0 16px 36px rgba(0,0,0,0.12);
-  transform:rotate(-1deg);
-  border:3px solid #e6cfc4;
-}
-
-/* alternate frame colors */
-.slide:nth-child(2n){
-  border-color:#d6e2e9;
-  background:linear-gradient(135deg,#eef6fb,#ffffff);
-}
-.slide:nth-child(3n){
-  border-color:#ead6e6;
-  background:linear-gradient(135deg,#fbf0f7,#ffffff);
-}
-.slide:nth-child(4n){
-  border-color:#e8e2d6;
-  background:linear-gradient(135deg,#faf7f0,#ffffff);
-}
-
-
-.slide img{
+/* 3D CAROUSEL DIARY */
+.carousel-container{
+  perspective:1400px;
   width:100%;
-  height:240px;
-  object-fit:contain;
-  background:#ffffff;
-  border-radius:18px;
-  padding:6px;
+  height:320px;
+  margin:30px auto;
+  position:relative;
 }
+
+.carousel{
+  width:100%;
+  height:100%;
+  position:absolute;
+  transform-style:preserve-3d;
+  transition:transform 1.2s ease;
+}
+
+.carousel__cell{
+  position:absolute;
+  width:240px;
+  height:280px;
+  left:50%;
+  top:20px;
+  transform-origin:50% 50% -520px;
+  transition:
+    transform 1s ease,
+    opacity 1s ease,
+    filter 1s ease;
+}
+
+/* IMAGE STYLE */
+.carousel__cell img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#fff;
+  border-radius:22px;
+  padding:8px;
+  box-shadow:0 16px 40px rgba(0,0,0,0.18);
+}
+
+/* 🦢 CENTER SPOTLIGHT */
+.carousel__cell.center{
+  transform:scale(1.15) !important;
+  z-index:10;
+  filter:none;
+}
+
+.carousel__cell:not(.center){
+  opacity:0.55;
+  filter:blur(1px);
+}
+
+/* 🔥 ROTATE ON HOVER */
+.carousel-container:hover .carousel{
+  animation:slowSpin 18s linear infinite;
+}
+
+@keyframes slowSpin{
+  from{transform:translateZ(-520px) rotateY(0deg);}
+  to{transform:translateZ(-520px) rotateY(360deg);}
+}
+
 
 
 .caption{
@@ -304,62 +322,28 @@ function restart(){
 <button onclick="checkAnswer('q5','right','birthday')">Enter 💖</button>
 </div>
 
-<!-- SLIDER -->
+<!-- 3D CAROUSEL PHOTO DIARY -->
 <div id="birthday" class="page">
-<h1>Happy Birthday Chinni 🧿💙</h1>
+  <h1>Happy Birthday Chinni 🧿💙</h1>
 
-<div class="slider">
+  <div class="carousel-container">
+    <div class="carousel" id="carousel">
 
-  <div class="slide">
-    <img src="photo1.jpg" alt="photo1">
-    <div class="caption">Where we were exicted to meet each other</div>
+      <div class="carousel__cell"><img src="photo1.jpg"></div>
+      <div class="carousel__cell"><img src="photo2.jpg"></div>
+      <div class="carousel__cell"><img src="photo3.jpg"></div>
+      <div class="carousel__cell"><img src="photo4.jpg"></div>
+      <div class="carousel__cell"><img src="photo5.jpg"></div>
+      <div class="carousel__cell"><img src="photo6.jpg"></div>
+      <div class="carousel__cell"><img src="photo7.jpg"></div>
+      <div class="carousel__cell"><img src="photo8.jpg"></div>
+      <div class="carousel__cell"><img src="photo9.jpg"></div>
+      <div class="carousel__cell"><img src="photo10.jpg"></div>
+
+    </div>
   </div>
 
-  <div class="slide">
-    <img src="photo2.jpg" alt="photo2">
-    <div class="caption">Where i saw you in tears for my pain</div>
-  </div>
-
-  <div class="slide">
-    <img src="photo3.jpg" alt="photo3">
-    <div class="caption">where our crazyness met stage</div>
-  </div>
-
-  <div class="slide">
-    <img src="photo4.jpg" alt="photo4">
-    <div class="caption">where we were connecting with pure love and connections</div>
-  </div>
-
-  <div class="slide">
-    <img src="photo5.jpg" alt="photo5">
-    <div class="caption">where the time pass things bought up childdesh us</div>
-  </div>
-
-  <div class="slide">
-    <img src="photo6.jpg" alt="photo6">
-    <div class="caption">where early morning yawning kept memorable</div>
-  </div>
-
-  <div class="slide">
-    <img src="photo7.jpg" alt="photo7">
-    <div class="caption">where those kisses meant that togetherness</div>
-  </div>
-
-  <div class="slide">
-    <img src="photo8.jpg" alt="photo8">
-    <div class="caption">where the memories started by birthdays</div>
-  </div>
-
-  <div class="slide">
-    <img src="photo9.jpg" alt="photo9">
-    <div class="caption">where the events started to hype </div>
-  </div>
-
-  <div class="slide">
-    <img src="photo10.jpg" alt="photo10">
-    <div class="caption">when unexpected meeting bought us closure</div>
-  </div>
-
+  <button onclick="show('para1')">Turn the page ➜</button>
 </div>
 
 
@@ -466,9 +450,51 @@ style="margin-top:20px;font-family:'Sacramento',cursive;font-size:22px;"></p>
 
 <button onclick="restart()">Submit</button>
 </div>
+<script>
+const carousel = document.getElementById("carousel");
+const cells = carousel.children;
+let index = 0;
+const total = cells.length;
+const theta = 360 / total;
+const radius = 520;
+
+/* Position cards */
+for(let i=0;i<total;i++){
+  const angle = theta * i;
+  cells[i].style.transform =
+    `rotateY(${angle}deg) translateZ(${radius}px)`;
+}
+
+/* Update carousel */
+function rotateCarousel(){
+  const angle = theta * index * -1;
+  carousel.style.transform =
+    `translateZ(-${radius}px) rotateY(${angle}deg)`;
+
+  [...cells].forEach(c=>c.classList.remove("center"));
+  const centerIndex = ((index % total) + total) % total;
+  cells[centerIndex].classList.add("center");
+}
+
+/* Initial focus */
+rotateCarousel();
+
+/* 📖 PAGE-TURN EFFECT ON TAP */
+carousel.addEventListener("click",()=>{
+  index++;
+  rotateCarousel();
+});
+
+/* ✨ AUTO SLOW DRIFT */
+setInterval(()=>{
+  index += 0.02;
+  rotateCarousel();
+},60);
+</script>
 
 </body>
 </html>
+
 
 
 
