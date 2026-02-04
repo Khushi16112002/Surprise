@@ -15,7 +15,7 @@
 
 html,body{
   margin:0;
-  font-family:'Segoe UI', system-ui, sans-serif;
+  font-family:'Segoe UI',system-ui,sans-serif;
   background:var(--bg);
   color:var(--text);
   text-align:center;
@@ -26,7 +26,6 @@ html,body{
   min-height:100vh;
   padding:60px 20px;
 }
-
 .page.active{display:block}
 
 h1,h2{color:var(--rose)}
@@ -45,18 +44,17 @@ button{
 label{
   display:block;
   margin:10px auto;
-  max-width:400px;
+  max-width:420px;
   padding:10px;
-  border-radius:12px;
+  border-radius:14px;
   background:#fff;
 }
 
-/* Photos */
 .photo{
   width:90%;
   max-width:320px;
   border-radius:20px;
-  margin:20px 0;
+  margin:18px 0;
 }
 </style>
 
@@ -66,12 +64,11 @@ function show(id){
   document.getElementById(id).classList.add('active');
 }
 
-/* LOGIN CHECK */
 function checkAnswer(name, correct, next){
-  const opts = document.getElementsByName(name);
+  const opts=document.getElementsByName(name);
   for(let o of opts){
     if(o.checked){
-      if(o.value === correct){
+      if(o.value===correct){
         show(next);
       }else{
         alert("Try once more 🙂");
@@ -82,15 +79,16 @@ function checkAnswer(name, correct, next){
   alert("Please select an option");
 }
 
-/* FINAL */
 function finalYes(){
   document.getElementById("finalMsg").innerText =
   "Thank you 🤍 We will sort things out. I love you.";
 }
+
 function finalNo(){
   document.getElementById("finalMsg").innerText =
-  "Every human can make mistakes. I beg you to let us sort things out.";
+  "Every human can make corrections. I beg you to let us sort things out.";
 }
+
 function restart(){
   show('login');
 }
@@ -107,92 +105,110 @@ function restart(){
 
 <!-- Q1 -->
 <div id="q1" class="page">
-  <h2>Question 1</h2>
-  <p>What is the first nickname I kept for you?</p>
-  <label><input type="radio" name="q1" value="wrong"> Akka</label>
-  <label><input type="radio" name="q1" value="right"> Chinni</label>
-  <label><input type="radio" name="q1" value="wrong"> Senior</label>
-  <button onclick="checkAnswer('q1','right','q2')">Next</button>
+<h2>Question 1</h2>
+<p>What is the first nickname I kept for you?</p>
+<label><input type="radio" name="q1" value="wrong"> Akka</label>
+<label><input type="radio" name="q1" value="right"> Chinni</label>
+<label><input type="radio" name="q1" value="wrong"> Senior</label>
+<label><input type="radio" name="q1" value="wrong"> Alburki</label>
+<button onclick="checkAnswer('q1','right','q2')">Next</button>
 </div>
 
 <!-- Q2 -->
 <div id="q2" class="page">
-  <h2>Question 2</h2>
-  <p>Where did we go without telling our family?</p>
-  <label><input type="radio" name="q2" value="wrong"> Sringeri</label>
-  <label><input type="radio" name="q2" value="right"> Kuppali</label>
-  <label><input type="radio" name="q2" value="wrong"> Mysore</label>
-  <button onclick="checkAnswer('q2','right','q3')">Next</button>
+<h2>Question 2</h2>
+<p>Where did we go without telling our family?</p>
+<label><input type="radio" name="q2" value="wrong"> Sringeri</label>
+<label><input type="radio" name="q2" value="wrong"> Balgadi</label>
+<label><input type="radio" name="q2" value="right"> Kuppali</label>
+<label><input type="radio" name="q2" value="wrong"> Sunset Point</label>
+<button onclick="checkAnswer('q2','right','q3')">Next</button>
 </div>
 
 <!-- Q3 -->
 <div id="q3" class="page">
-  <h2>Question 3</h2>
-  <p>Colour of the top I gifted you?</p>
-  <label><input type="radio" name="q3" value="wrong"> Red</label>
-  <label><input type="radio" name="q3" value="right"> Light Blue</label>
-  <label><input type="radio" name="q3" value="wrong"> Navy Blue</label>
-  <button onclick="checkAnswer('q3','right','q4')">Next</button>
+<h2>Question 3</h2>
+<p>Which colour top did I gift you?</p>
+<label><input type="radio" name="q3" value="wrong"> Red</label>
+<label><input type="radio" name="q3" value="wrong"> Navy Blue</label>
+<label><input type="radio" name="q3" value="right"> Light Blue</label>
+<label><input type="radio" name="q3" value="wrong"> Dark Blue</label>
+<button onclick="checkAnswer('q3','right','q4')">Next</button>
 </div>
 
 <!-- Q4 -->
 <div id="q4" class="page">
-  <h2>Question 4</h2>
-  <p>What do you like that I do for you?</p>
-  <label><input type="radio" name="q4" value="wrong"> Fighting</label>
-  <label><input type="radio" name="q4" value="right"> Making you happy</label>
-  <label><input type="radio" name="q4" value="wrong"> Irritating</label>
-  <button onclick="checkAnswer('q4','right','q5')">Next</button>
+<h2>Question 4</h2>
+<p>What do you like that I do for you?</p>
+<label><input type="radio" name="q4" value="wrong"> Irritating</label>
+<label><input type="radio" name="q4" value="wrong"> Fighting</label>
+<label><input type="radio" name="q4" value="wrong"> Keeping quiet</label>
+<label><input type="radio" name="q4" value="right"> Making you happy</label>
+<button onclick="checkAnswer('q4','right','q5')">Next</button>
 </div>
 
 <!-- Q5 -->
 <div id="q5" class="page">
-  <h2>Question 5</h2>
-  <p>Where do you want to go with me?</p>
-  <label><input type="radio" name="q5" value="wrong"> Mysore</label>
-  <label><input type="radio" name="q5" value="right"> Resort</label>
-  <label><input type="radio" name="q5" value="wrong"> Adiyogi</label>
-  <button onclick="checkAnswer('q5','right','birthday')">Enter 💖</button>
+<h2>Question 5</h2>
+<p>Where do you want to go with me?</p>
+<label><input type="radio" name="q5" value="wrong"> Mysore</label>
+<label><input type="radio" name="q5" value="wrong"> Adhiyogi</label>
+<label><input type="radio" name="q5" value="right"> Resort</label>
+<label><input type="radio" name="q5" value="wrong"> Spot</label>
+<button onclick="checkAnswer('q5','right','birthday')">Enter 💖</button>
 </div>
 
 <!-- BIRTHDAY -->
 <div id="birthday" class="page">
-  <h1>Happy Birthday Chinni 🧿💙</h1>
-  <p>The prettiest soul I know</p>
-  <img src="photo1.jpg" class="photo">
-  <img src="photo2.jpg" class="photo">
-  <img src="photo3.jpg" class="photo">
-  <button onclick="show('video')">Next 🎥</button>
-</div>
-
-<!-- VIDEO -->
-<div id="video" class="page">
-  <h2>A Small Piece of Us</h2>
-  <video controls width="90%">
-    <source src="video.mp4" type="video/mp4">
-  </video>
-  <button onclick="show('letter')">Next 💌</button>
+<h1>Happy Birthday Chinni 🧿💙</h1>
+<img src="photo1.png" class="photo">
+<img src="photo2.png" class="photo">
+<img src="photo3.png" class="photo">
+<img src="photo4.png" class="photo">
+<img src="photo5.png" class="photo">
+<img src="photo6.png" class="photo">
+<img src="photo7.png" class="photo">
+<img src="photo8.png" class="photo">
+<img src="photo9.png" class="photo">
+<img src="photo10.png" class="photo">
+<button onclick="show('letter')">Next 💌</button>
 </div>
 
 <!-- LETTER -->
 <div id="letter" class="page">
-  <h2>From My Heart</h2>
-  <p style="font-family:'Sacramento',cursive;font-size:22px;">
-    E nanna sanna efforts ninge esta aythu ankoltini...  
-    I love you moreee and to the moon 😘😘
-  </p>
-  <button onclick="show('final')">One last thing 🤍</button>
+<p style="font-family:'Sacramento',cursive;font-size:22px;">
+Happy Birthday Chinni 🧿💙  
+This is the 5th year of celebrating your birthday…  
+Yours always, Acchu 💖
+</p>
+<button onclick="show('video')">Next 🎥</button>
 </div>
 
-<!-- FINAL -->
+<!-- VIDEO -->
+<div id="video" class="page">
+<video controls width="90%">
+<source src="video.mp4" type="video/mp4">
+</video>
+<button onclick="show('finaltext')">Next 🤍</button>
+</div>
+
+<!-- FINAL PARAGRAPH -->
+<div id="finaltext" class="page">
+<p style="font-family:'Sacramento',cursive;font-size:22px;">
+E nanna sanna efforts ninge esta aythu ankoltini, yaru madilla ankoltini,  
+nang gottilla yavdunna heg express madbeku antha...  
+I love you moreee and to the mooon 😘😘
+</p>
+<button onclick="show('final')">One last thing 🤍</button>
+</div>
+
+<!-- FINAL QUESTION -->
 <div id="final" class="page">
-  <h2>Will you give me another chance?</h2>
-  <button onclick="finalYes()">Yes 🤍</button>
-  <button onclick="finalNo()">No</button>
-  <p id="finalMsg"
-     style="margin-top:20px;font-family:'Sacramento',cursive;font-size:22px;">
-  </p>
-  <button onclick="restart()">Submit</button>
+<h2>Will you give me another chance?</h2>
+<button onclick="finalYes()">Yes 🤍</button>
+<button onclick="finalNo()">No</button>
+<p id="finalMsg" style="margin-top:20px;font-family:'Sacramento',cursive;font-size:22px;"></p>
+<button onclick="restart()">Submit</button>
 </div>
 
 </body>
