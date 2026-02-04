@@ -9,24 +9,30 @@
 <style>
 /* ===== LUXURY PALETTE ===== */
 :root{
-  --bg1:#0b0b0f;
-  --bg2:#14141a;
-  --rose:#e6b3b3;
-  --rose-strong:#d9a3a3;
-  --text:#f4f1f1;
-  --muted:#cfc7c7;
+  --bg-light:#f7f2ee;
+  --bg-mid:#efe6df;
+  --bg-deep:#e7ddd6;
+  --rose:#8b5e5e;
+  --rose-soft:#b07a7a;
+  --text:#3b2f2f;
+  --muted:#6b5b5b;
 }
+
 
 /* ===== BASE ===== */
 html,body{
   margin:0;
   font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
-  background: radial-gradient(1200px 800px at 10% 10%, #1a1a22, transparent 60%),
-              radial-gradient(900px 600px at 90% 20%, #1f1a1f, transparent 55%),
-              linear-gradient(180deg, var(--bg1), var(--bg2));
+  background: linear-gradient(
+    180deg,
+    var(--bg-light) 0%,
+    var(--bg-mid) 50%,
+    var(--bg-deep) 100%
+  );
   color:var(--text);
   text-align:center;
 }
+
 
 .page{
   display:none;
@@ -38,37 +44,41 @@ html,body{
 /* ===== TYPOGRAPHY ===== */
 h1{
   font-size:36px;
-  letter-spacing:.5px;
+  letter-spacing:.4px;
   color:var(--rose);
-  text-shadow:0 8px 30px rgba(230,179,179,.25);
-  animation:fadeZoom 1.8s ease-out;
+  animation:fadeZoom 1.6s ease-out;
 }
+
 h2{
   color:var(--rose);
   margin-bottom:8px;
 }
+
 p{
   font-size:17px;
-  line-height:1.75;
+  line-height:1.8;
   color:var(--muted);
 }
+
 
 /* ===== BUTTON ===== */
 button{
   margin-top:28px;
   padding:12px 34px;
   border-radius:999px;
-  border:1px solid rgba(230,179,179,.35);
-  background:
-    linear-gradient(135deg, rgba(230,179,179,.35), rgba(217,163,163,.75));
-  color:#1a1414;
+  border:1px solid rgba(139,94,94,0.35);
+  background: linear-gradient(
+    135deg,
+    #f3e2dc,
+    #e9cfc6
+  );
+  color:#3b2f2f;
   font-weight:600;
   letter-spacing:.3px;
-  box-shadow:
-    0 10px 30px rgba(217,163,163,.35),
-    inset 0 1px 0 rgba(255,255,255,.35);
+  box-shadow:0 8px 20px rgba(0,0,0,0.12);
   cursor:pointer;
 }
+
 button:active{transform:translateY(1px)}
 
 /* ===== QUESTIONS ===== */
@@ -141,12 +151,16 @@ video{
 }
 
 .photo-caption{
-  margin-top:12px;
-  font-size:15px;
-  color:var(--rose);
-  letter-spacing:0.4px;
-  opacity:0.9;
+  margin-top:14px;
+  font-family: 'Sacramento', cursive;
+  font-size:22px;
+  color:var(--rose-soft);
+  letter-spacing:0.6px;
+  opacity:0;
+  transform:translateY(12px);
+  transition: opacity 1.6s ease, transform 1.6s ease;
 }
+
 /* ===== PHOTO + CAPTION (ANIMATED) ===== */
 .photo-block{
   margin:30px 0 42px;
@@ -381,6 +395,7 @@ document.querySelectorAll('.photo-block').forEach(block => {
 
 </body>
 </html>
+
 
 
 
