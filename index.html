@@ -33,13 +33,21 @@ h1,h2{color:var(--rose)}
 p{line-height:1.8}
 
 button{
-  margin-top:25px;
-  padding:12px 30px;
-  border-radius:30px;
+  margin-top:28px;
+  padding:12px 34px;
+  border-radius:32px;
   border:none;
-  background:#e9cfc6;
+  background:linear-gradient(135deg,#e9cfc6,#f2ddd4);
   font-weight:600;
+  font-size:15px;
   cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,0,0,0.12);
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:active{
+  transform:scale(0.96);
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
 }
 
 label{
@@ -65,24 +73,38 @@ label{
 .slide{
   flex:0 0 76%;
   scroll-snap-align:center;
-  background:#fff;
-  border-radius:22px;
-  padding:14px;
-  box-shadow:0 14px 34px rgba(0,0,0,0.12);
+  background:linear-gradient(135deg,#f9efe6,#fdfaf7);
+  border-radius:24px;
+  padding:16px;
+  box-shadow:0 16px 36px rgba(0,0,0,0.12);
   transform:rotate(-1deg);
+  border:3px solid #e6cfc4;
 }
 
-.slide:nth-child(even){
-  transform:rotate(1deg);
+/* alternate frame colors */
+.slide:nth-child(2n){
+  border-color:#d6e2e9;
+  background:linear-gradient(135deg,#eef6fb,#ffffff);
 }
+.slide:nth-child(3n){
+  border-color:#ead6e6;
+  background:linear-gradient(135deg,#fbf0f7,#ffffff);
+}
+.slide:nth-child(4n){
+  border-color:#e8e2d6;
+  background:linear-gradient(135deg,#faf7f0,#ffffff);
+}
+
 
 .slide img{
   width:100%;
   height:240px;
   object-fit:contain;
-  background:#f5f5f5;
-  border-radius:16px;
+  background:#ffffff;
+  border-radius:18px;
+  padding:6px;
 }
+
 
 .caption{
   margin-top:12px;
@@ -117,6 +139,19 @@ label{
   display:block;
   margin-top:20px;
 }
+  .diary{
+  backdrop-filter:blur(2px);
+}
+
+.page{
+  animation:fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
 /* DIARY PAGE */
 .diary{
   max-width:540px;
@@ -155,6 +190,16 @@ label{
 .diary em{
   display:block;
   margin-top:22px;
+}
+/* PAPER TEXTURE BACKGROUND */
+body{
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      #fffdf9,
+      #fffdf9 28px,
+      #f6efe8 29px
+    );
 }
 
 </style>
@@ -424,6 +469,7 @@ style="margin-top:20px;font-family:'Sacramento',cursive;font-size:22px;"></p>
 
 </body>
 </html>
+
 
 
 
