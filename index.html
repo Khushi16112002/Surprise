@@ -42,6 +42,15 @@ button{
   cursor:pointer;
 }
 
+label{
+  display:block;
+  margin:10px auto;
+  max-width:420px;
+  padding:10px;
+  border-radius:14px;
+  background:#fff;
+}
+
 /* SLIDER */
 .slider{
   display:flex;
@@ -77,6 +86,21 @@ function show(id){
   document.getElementById(id).classList.add('active');
 }
 
+function checkAnswer(name, correct, next){
+  const opts=document.getElementsByName(name);
+  for(let o of opts){
+    if(o.checked){
+      if(o.value===correct){
+        show(next);
+      }else{
+        alert("Try once more 🙂");
+      }
+      return;
+    }
+  }
+  alert("Please select an option");
+}
+
 function finalYes(){
   document.getElementById("finalMsg").innerText =
   "I’m sorry for whatever I’ve done. We’ll sit and sort everything out 🤍";
@@ -98,103 +122,119 @@ function restart(){
 <!-- LOGIN -->
 <div id="login" class="page active">
   <h1>This is only for you 🤍</h1>
-  <button onclick="show('birthday')">Login 🔐</button>
+  <button onclick="show('q1')">Login 🔐</button>
 </div>
 
-<!-- BIRTHDAY + SLIDER -->
+<!-- Q1 -->
+<div id="q1" class="page">
+<h2>Question 1</h2>
+<p>What is the first nickname I kept for you?</p>
+<label><input type="radio" name="q1" value="wrong"> Akka</label>
+<label><input type="radio" name="q1" value="right"> Senior</label>
+<label><input type="radio" name="q1" value="wrong"> Chinni</label>
+<label><input type="radio" name="q1" value="wrong"> Alburki</label>
+<button onclick="checkAnswer('q1','right','q2')">Next</button>
+</div>
+
+<!-- Q2 -->
+<div id="q2" class="page">
+<h2>Question 2</h2>
+<p>Where did we go without telling our family?</p>
+<label><input type="radio" name="q2" value="wrong"> Sringeri</label>
+<label><input type="radio" name="q2" value="right"> Sunset Point</label>
+<label><input type="radio" name="q2" value="wrong"> Balgadi</label>
+<label><input type="radio" name="q2" value="wrong"> Kuppali</label>
+<button onclick="checkAnswer('q2','right','q3')">Next</button>
+</div>
+
+<!-- Q3 -->
+<div id="q3" class="page">
+<h2>Question 3</h2>
+<p>Which colour top did I gift you?</p>
+<label><input type="radio" name="q3" value="wrong"> Red</label>
+<label><input type="radio" name="q3" value="wrong"> Navy Blue</label>
+<label><input type="radio" name="q3" value="right"> Light Blue</label>
+<label><input type="radio" name="q3" value="wrong"> Dark Blue</label>
+<button onclick="checkAnswer('q3','right','q4')">Next</button>
+</div>
+
+<!-- Q4 -->
+<div id="q4" class="page">
+<h2>Question 4</h2>
+<p>What do you like that I do for you?</p>
+<label><input type="radio" name="q4" value="wrong"> Irritating</label>
+<label><input type="radio" name="q4" value="wrong"> Fighting</label>
+<label><input type="radio" name="q4" value="wrong"> Keeping quiet</label>
+<label><input type="radio" name="q4" value="right"> Making you happy</label>
+<button onclick="checkAnswer('q4','right','q5')">Next</button>
+</div>
+
+<!-- Q5 -->
+<div id="q5" class="page">
+<h2>Question 5</h2>
+<p>Where do you want to go with me?</p>
+<label><input type="radio" name="q5" value="wrong"> Mysore</label>
+<label><input type="radio" name="q5" value="right"> Adhiyogi</label>
+<label><input type="radio" name="q5" value="wrong"> Resort</label>
+<label><input type="radio" name="q5" value="wrong"> Spot</label>
+<button onclick="checkAnswer('q5','right','birthday')">Enter 💖</button>
+</div>
+
+<!-- SLIDER -->
 <div id="birthday" class="page">
-  <h1>Happy Birthday Chinni 🧿💙</h1>
+<h1>Happy Birthday Chinni 🧿💙</h1>
 
-  <div class="slider">
-    <div class="slide">
-      <img src="photo1.jpg">
-      <div class="caption">Our first memory 🤍</div>
-    </div>
+<div class="slider">
+  <div class="slide"><img src="photo1.jpg"><div class="caption">Our first memory 🤍</div></div>
+  <div class="slide"><img src="photo2.jpg"><div class="caption">Always with you</div></div>
+  <div class="slide"><img src="photo3.jpg"><div class="caption">My favourite</div></div>
+  <div class="slide"><img src="photo4.jpg"><div class="caption">You & me 💙</div></div>
+  <div class="slide"><img src="photo5.jpg"><div class="caption">That smile</div></div>
+  <div class="slide"><img src="photo6.jpg"><div class="caption">Forever memory</div></div>
+  <div class="slide"><img src="photo7.jpg"><div class="caption">My comfort</div></div>
+  <div class="slide"><img src="photo8.jpg"><div class="caption">Us 🤍</div></div>
+  <div class="slide"><img src="photo9.jpg"><div class="caption">Pure happiness</div></div>
+  <div class="slide"><img src="photo10.jpg"><div class="caption">Always you</div></div>
+</div>
 
-    <div class="slide">
-      <img src="photo2.jpg">
-      <div class="caption">Always with you</div>
-    </div>
-
-    <div class="slide">
-      <img src="photo3.jpg">
-      <div class="caption">My favourite</div>
-    </div>
-
-    <div class="slide">
-      <img src="photo4.jpg">
-      <div class="caption">You & me 💙</div>
-    </div>
-
-    <div class="slide">
-      <img src="photo5.jpg">
-      <div class="caption">That smile</div>
-    </div>
-
-    <div class="slide">
-      <img src="photo6.jpg">
-      <div class="caption">Forever memory</div>
-    </div>
-
-    <div class="slide">
-      <img src="photo7.jpg">
-      <div class="caption">My comfort</div>
-    </div>
-
-    <div class="slide">
-      <img src="photo8.jpg">
-      <div class="caption">Us 🤍</div>
-    </div>
-
-    <div class="slide">
-      <img src="photo9.jpg">
-      <div class="caption">Pure happiness</div>
-    </div>
-
-    <div class="slide">
-      <img src="photo10.jpg">
-      <div class="caption">Always you</div>
-    </div>
-  </div>
-
-  <button onclick="show('para1')">Next 💌</button>
+<button onclick="show('para1')">Next 💌</button>
 </div>
 
 <!-- PARAGRAPH 1 -->
 <div id="para1" class="page">
-  <p style="font-family:'Sacramento',cursive;font-size:22px;">
-    PASTE YOUR FIRST PARAGRAPH HERE
-  </p>
-  <button onclick="show('video')">Next 🎥</button>
+<p style="font-family:'Sacramento',cursive;font-size:22px;">
+PASTE YOUR FIRST PARAGRAPH HERE
+</p>
+<button onclick="show('video')">Next 🎥</button>
 </div>
 
 <!-- VIDEO -->
 <div id="video" class="page">
-  <video controls width="90%">
-    <source src="video.mp4" type="video/mp4">
-  </video>
-  <button onclick="show('para2')">Next 🤍</button>
+<video controls width="90%">
+  <source src="video.mp4" type="video/mp4">
+</video>
+<button onclick="show('para2')">Next 🤍</button>
 </div>
 
 <!-- PARAGRAPH 2 -->
 <div id="para2" class="page">
-  <p style="font-family:'Sacramento',cursive;font-size:22px;">
-    PASTE YOUR SECOND PARAGRAPH HERE
-  </p>
-  <button onclick="show('final')">One last thing 🤍</button>
+<p style="font-family:'Sacramento',cursive;font-size:22px;">
+PASTE YOUR SECOND PARAGRAPH HERE
+</p>
+<button onclick="show('final')">One last thing 🤍</button>
 </div>
 
 <!-- FINAL -->
 <div id="final" class="page">
-  <h2>Will you give me a chance?</h2>
+<h2>Will you give me a chance?</h2>
 
-  <button onclick="finalYes()">Yes 🤍</button>
-  <button onclick="finalNo()">No</button>
+<button onclick="finalYes()">Yes 🤍</button>
+<button onclick="finalNo()">No</button>
 
-  <p id="finalMsg"
-     style="margin-top:20px;font-family:'Sacramento',cursive;font-size:22px;"></p>
+<p id="finalMsg"
+style="margin-top:20px;font-family:'Sacramento',cursive;font-size:22px;"></p>
 
-  <button onclick="restart()">Submit</button>
+<button onclick="restart()">Submit</button>
 </div>
 
 </body>
