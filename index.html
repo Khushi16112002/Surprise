@@ -51,46 +51,47 @@ label{
   background:#fff;
 }
 
-/* SLIDER WRAPPER */
+/* PHOTO DIARY */
 .slider{
   display:flex;
-  gap:18px;
+  gap:22px;
   overflow-x:auto;
   scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
-  padding:20px 12px 30px;
+  padding:24px 16px 36px;
 }
 
-.slider::-webkit-scrollbar{
-  display:none;
-}
+.slider::-webkit-scrollbar{display:none;}
 
-/* SLIDE CARD */
 .slide{
-  flex:0 0 78%;
+  flex:0 0 76%;
   scroll-snap-align:center;
   background:#fff;
-  border-radius:20px;
-  padding:12px;
-  box-shadow:0 12px 28px rgba(0,0,0,0.12);
+  border-radius:22px;
+  padding:14px;
+  box-shadow:0 14px 34px rgba(0,0,0,0.12);
+  transform:rotate(-1deg);
 }
 
-/* IMAGE FIX (NO ZOOM, FULL IMAGE) */
+.slide:nth-child(even){
+  transform:rotate(1deg);
+}
+
 .slide img{
   width:100%;
-  height:230px;
-  object-fit:contain;   /* 🔥 KEY FIX */
+  height:240px;
+  object-fit:contain;
+  background:#f5f5f5;
   border-radius:16px;
-  background:#f2f2f2;   /* fills empty space nicely */
-  display:block;
 }
 
-/* CAPTION */
 .caption{
-  margin-top:10px;
-  font-size:14px;
-  opacity:0.85;
+  margin-top:12px;
+  font-family:'Sacramento',cursive;
+  font-size:20px;
+  text-align:center;
+  opacity:0.9;
 }
+
 .letter{
   max-width:520px;
   margin:0 auto;
@@ -115,6 +116,45 @@ label{
 .letter em{
   display:block;
   margin-top:20px;
+}
+/* DIARY PAGE */
+.diary{
+  max-width:540px;
+  margin:0 auto;
+  padding:28px 24px;
+  background:#fffdf9;
+  border-radius:26px;
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.08),
+    inset 0 0 0 1px #f0e6df;
+  font-family:'Sacramento',cursive;
+  font-size:22px;
+  line-height:2.1;
+  color:#3b2f2f;
+  text-align:left;
+  position:relative;
+}
+
+/* diary binding line */
+.diary::before{
+  content:'';
+  position:absolute;
+  left:18px;
+  top:20px;
+  bottom:20px;
+  width:2px;
+  background:#e6cfc4;
+}
+
+.diary h3{
+  text-align:center;
+  font-size:28px;
+  margin-bottom:18px;
+}
+
+.diary em{
+  display:block;
+  margin-top:22px;
 }
 
 </style>
@@ -282,9 +322,9 @@ function restart(){
 </div>
 
 <div id="para1" class="page">
-  <div class="letter">
+  <div class="diary">
 
-    <strong>Happy Birthday Chinni 🧿💙</strong>
+    <h3>📖 Dear Chinni 🧿💙</h3>
 
     Hai… keep a smile on your face and start reading 🤍  
     This is the 5th year of celebrating your birthday.  
@@ -306,7 +346,6 @@ function restart(){
 
     <br><br>
 
-    This is a small surprise.  
     I’ve never tried something like this before,  
     but using my favorite thing — coding —  
     just to bring a small smile on your face  
@@ -314,21 +353,9 @@ function restart(){
 
     <br><br>
 
-    I know things between us were not that good.  
-    I truly hope they start getting better from today.  
-    Whatever mistakes I made were my responsibility,  
-    and I should have handled things better.
-
-    <br><br>
-
-    From the bottom of my heart,  
-    I am really sorry for everything that hurt you.  
+    I truly hope things between us start getting better from today.  
+    Whatever mistakes I made were my responsibility.  
     Please forgive me.
-
-    <br><br>
-
-    I miss you more than words can explain.  
-    I truly value you.
 
     <br><br>
 
@@ -337,7 +364,7 @@ function restart(){
 
   </div>
 
-  <button onclick="show('video')">Next 🎥</button>
+  <button onclick="show('birthday')">Turn the page ➜</button>
 </div>
 
 
@@ -350,12 +377,10 @@ function restart(){
 </div>
 
 <div id="para2" class="page">
-  <div class="letter">
+  <div class="diary">
 
     Ee nanna sanna efforts ninge ista aythu ankoltini 🤍  
-    Yaaru madilla ankoltini.  
-    Nang gottilla yavdunna heg express madbeku antha,  
-    nang gottilla naan olled madtidina kettuda antha.
+    Nang gottilla yavdunna heg express madbeku antha.
 
     <br><br>
 
@@ -380,9 +405,8 @@ function restart(){
 
   </div>
 
-  <button onclick="show('final')">One last thing 🤍</button>
+  <button onclick="show('final')">Last page 🤍</button>
 </div>
-
 
 <!-- FINAL -->
 <div id="final" class="page">
@@ -399,6 +423,7 @@ style="margin-top:20px;font-family:'Sacramento',cursive;font-size:22px;"></p>
 
 </body>
 </html>
+
 
 
 
