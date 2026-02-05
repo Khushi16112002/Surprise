@@ -110,17 +110,6 @@ label{
 .carousel__cell:not(.center){
   opacity:0.65;
 }
-
-
-/* 🔥 ROTATE ON HOVER */
-.carousel-container:hover .carousel{
-  animation:slowSpin 18s linear infinite;
-}
-
-@keyframes slowSpin{
-  from{transform:translateZ(-520px) rotateY(0deg);}
-  to{transform:translateZ(-520px) rotateY(360deg);}
-}
 .caption{
   margin-top:12px;
   font-family:'Sacramento',cursive;
@@ -419,23 +408,12 @@ function rotateCarousel(){
 
 /* Initial focus */
 rotateCarousel();
-
-/* 📖 PAGE-TURN EFFECT ON TAP */
-carousel.addEventListener("click",()=>{
-  index++;
-  rotateCarousel();
-});
-
-/* ✨ AUTO SLOW DRIFT */
-setInterval(()=>{
-  index += 0.01;
-  rotateCarousel();
-},200);
-
+  
 </script>
 
 </body>
 </html>
+
 
 
 
