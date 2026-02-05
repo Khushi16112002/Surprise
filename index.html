@@ -82,12 +82,10 @@ label{
   height:280px;
   left:50%;
   top:20px;
+  transform: translateX(-50%);
   transform-origin:50% 50% -520px;
-  transition:
-    transform 1s ease,
-    opacity 1s ease,
-    filter 1s ease;
 }
+
 
 /* IMAGE STYLE */
 .carousel__cell img{
@@ -273,6 +271,10 @@ function restart(){
       <div class="carousel__cell"><img src="photo8.jpg"></div>
       <div class="carousel__cell"><img src="photo9.jpg"></div>
       <div class="carousel__cell"><img src="photo10.jpg"></div>
+<div style="margin-top:20px;">
+  <button onclick="prevPhoto()">◀ Prev</button>
+  <button onclick="nextPhoto()">Next ▶</button>
+</div>
 
     </div>
   </div>
@@ -405,14 +407,21 @@ function rotateCarousel(){
   const centerIndex = ((index % total) + total) % total;
   cells[centerIndex].classList.add("center");
 }
+  function nextPhoto(){
+  index++;
+  rotateCarousel();
+}
 
-/* Initial focus */
-rotateCarousel();
-  
+function prevPhoto(){
+  index--;
+  rotateCarousel();
+}
+
 </script>
 
 </body>
 </html>
+
 
 
 
