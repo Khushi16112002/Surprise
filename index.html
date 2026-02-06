@@ -59,55 +59,30 @@ label{
   background:#fff;
 }
 
-/* 3D CAROUSEL DIARY */
-.carousel-container{
-  perspective:1400px;
-  width:100%;
+.slider{
+  width:260px;
   height:320px;
   margin:30px auto;
-  position:relative;
-}
-
-.carousel{
-  width:100%;
-  height:100%;
-  position:absolute;
-  transform-style:preserve-3d;
-  transition:transform 1.2s ease;
-}
-
-.carousel__cell{
-  position:absolute;
-  width:240px;
-  height:280px;
-  left:50%;
-  top:20px;
-  transform: translateX(-50%);
-  transform-origin:50% 50% -520px;
-}
-
-
-/* IMAGE STYLE */
-.carousel__cell img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  background:#fff;
+  overflow:hidden;
   border-radius:22px;
-  padding:8px;
+  background:#fff;
   box-shadow:0 16px 40px rgba(0,0,0,0.18);
 }
 
-/* 🦢 CENTER SPOTLIGHT */
-.carousel__cell.center{
-  transform:scale(1.15) !important;
-  z-index:10;
-  filter:none;
+.slides{
+  display:flex;
+  width:100%;
+  height:100%;
+  transition:transform 0.6s ease;
 }
 
-.carousel__cell:not(.center){
-  opacity:0.65;
+.slides img{
+  width:260px;
+  height:320px;
+  object-fit:contain;
+  padding:10px;
 }
+
 .caption{
   margin-top:12px;
   font-family:'Sacramento',cursive;
@@ -254,29 +229,27 @@ function restart(){
 <button onclick="checkAnswer('q5','right','birthday')">Enter 💖</button>
 </div>
 
-<!-- 3D CAROUSEL PHOTO DIARY -->
 <div id="birthday" class="page">
   <h1>Happy Birthday Chinni 🧿💙</h1>
 
-  <div class="carousel-container">
-    <div class="carousel" id="carousel">
-
-      <div class="carousel__cell"><img src="photo1.jpg"></div>
-      <div class="carousel__cell"><img src="photo2.jpg"></div>
-      <div class="carousel__cell"><img src="photo3.jpg"></div>
-      <div class="carousel__cell"><img src="photo4.jpg"></div>
-      <div class="carousel__cell"><img src="photo5.jpg"></div>
-      <div class="carousel__cell"><img src="photo6.jpg"></div>
-      <div class="carousel__cell"><img src="photo7.jpg"></div>
-      <div class="carousel__cell"><img src="photo8.jpg"></div>
-      <div class="carousel__cell"><img src="photo9.jpg"></div>
-      <div class="carousel__cell"><img src="photo10.jpg"></div>
-<div style="margin-top:20px;">
-  <button onclick="prevPhoto()">◀ Prev</button>
-  <button onclick="nextPhoto()">Next ▶</button>
-</div>
-
+  <div class="slider">
+    <div class="slides" id="slides">
+      <img src="photo1.jpg">
+      <img src="photo2.jpg">
+      <img src="photo3.jpg">
+      <img src="photo4.jpg">
+      <img src="photo5.jpg">
+      <img src="photo6.jpg">
+      <img src="photo7.jpg">
+      <img src="photo8.jpg">
+      <img src="photo9.jpg">
+      <img src="photo10.jpg">
     </div>
+  </div>
+
+  <div style="margin-top:20px;">
+    <button onclick="prevPhoto()">◀ Prev</button>
+    <button onclick="nextPhoto()">Next ▶</button>
   </div>
 
   <button onclick="show('para1')">Turn the page ➜</button>
@@ -383,44 +356,34 @@ style="margin-top:20px;font-family:'Sacramento',cursive;font-size:22px;"></p>
 <button onclick="restart()">Submit</button>
 </div>
 <script>
-const carousel = document.getElementById("carousel");
-const cells = carousel.children;
-let index = 0;
-const total = cells.length;
-const theta = 360 / total;
-const radius = 520;
+let currentIndex = 0;
+const slides = document.getElementById("slides");
+const totalSlides = slides.children.length;
 
-/* Position cards */
-for(let i=0;i<total;i++){
-  const angle = theta * i;
-  cells[i].style.transform =
-    `rotateY(${angle}deg) translateZ(${radius}px)`;
+function updateSlide(){
+  slides.style.transform =
+    `translateX(-${currentIndex * 260}px)`;
 }
 
-/* Update carousel */
-function rotateCarousel(){
-  const angle = theta * index * -1;
-  carousel.style.transform =
-    `translateZ(-${radius}px) rotateY(${angle}deg)`;
-
-  [...cells].forEach(c=>c.classList.remove("center"));
-  const centerIndex = ((index % total) + total) % total;
-  cells[centerIndex].classList.add("center");
-}
-  function nextPhoto(){
-  index++;
-  rotateCarousel();
+function nextPhoto(){
+  if(currentIndex < totalSlides - 1){
+    currentIndex++;
+    updateSlide();
+  }
 }
 
 function prevPhoto(){
-  index--;
-  rotateCarousel();
+  if(currentIndex > 0){
+    currentIndex--;
+    updateSlide();
+  }
 }
-
 </script>
+
 
 </body>
 </html>
+
 
 
 
