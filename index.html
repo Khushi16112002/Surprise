@@ -232,20 +232,23 @@ function restart(){
 <div id="birthday" class="page">
   <h1>Happy Birthday Chinni 🧿💙</h1>
 
-  <div class="slider">
-    <div class="slides" id="slides">
-      <img src="photo1.jpg">
-      <img src="photo2.jpg">
-      <img src="photo3.jpg">
-      <img src="photo4.jpg">
-      <img src="photo5.jpg">
-      <img src="photo6.jpg">
-      <img src="photo7.jpg">
-      <img src="photo8.jpg">
-      <img src="photo9.jpg">
-      <img src="photo10.jpg">
-    </div>
+ <div class="slider">
+  <div class="slides" id="slides">
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+    <img src="photo4.jpg">
+    <img src="photo5.jpg">
+    <img src="photo6.jpg">
+    <img src="photo7.jpg">
+    <img src="photo8.jpg">
+    <img src="photo9.jpg">
+    <img src="photo10.jpg">
   </div>
+</div>
+
+<div id="caption" class="caption"></div>
+
 
   <div style="margin-top:20px;">
     <button onclick="prevPhoto()">◀ Prev</button>
@@ -359,10 +362,26 @@ style="margin-top:20px;font-family:'Sacramento',cursive;font-size:22px;"></p>
 let currentIndex = 0;
 const slides = document.getElementById("slides");
 const totalSlides = slides.children.length;
+const captionEl = document.getElementById("caption");
+
+/* 👇 captions for each photo (order matters) */
+const captions = [
+  "My forever smile 🤍",
+  "That day I felt lucky 💙",
+  "Your happiness is my peace 🧿",
+  "Always proud of you 🌸",
+  "Moments I’ll never forget ✨",
+  "You make everything brighter ☀️",
+  "My favorite human 💕",
+  "Just you being you 🥹",
+  "A memory close to my heart 💭",
+  "Always us 🤞"
+];
 
 function updateSlide(){
   slides.style.transform =
     `translateX(-${currentIndex * 260}px)`;
+  captionEl.innerText = captions[currentIndex];
 }
 
 function nextPhoto(){
@@ -378,11 +397,16 @@ function prevPhoto(){
     updateSlide();
   }
 }
+
+/* show first caption */
+updateSlide();
 </script>
+
 
 
 </body>
 </html>
+
 
 
 
