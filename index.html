@@ -295,31 +295,14 @@ function restart(){
   </div>
 </div>
 
-
 <!-- Q1 -->
 <div id="q1" class="page">
 <h2>Question 1</h2>
 <p>What is the first nickname I kept for you?</p>
-<label class="option">
-  <input type="radio" name="q1" value="wrong">
-  <span>Akka</span>
-</label>
-
-<label class="option">
-  <input type="radio" name="q1" value="right">
-  <span>Senior</span>
-</label>
-
-<label class="option">
-  <input type="radio" name="q1" value="wrong">
-  <span>Chinni</span>
-</label>
-
-<label class="option">
-  <input type="radio" name="q1" value="wrong">
-  <span>Alburki</span>
-</label>
-
+<label class="option"><input type="radio" name="q1" value="wrong"><span>Akka</span></label>
+<label class="option"><input type="radio" name="q1" value="right"><span>Senior</span></label>
+<label class="option"><input type="radio" name="q1" value="wrong"><span>Chinni</span></label>
+<label class="option"><input type="radio" name="q1" value="wrong"><span>Alburki</span></label>
 <button onclick="checkAnswer('q1','right','q2')">Next</button>
 </div>
 
@@ -327,26 +310,10 @@ function restart(){
 <div id="q2" class="page">
 <h2>Question 2</h2>
 <p>Where did we go without telling our family?</p>
-<label class="option">
-  <input type="radio" name="q1" value="wrong">
-  <span>Sringeri</span>
-</label>
-
-<label class="option">
- <input type="radio" name="q1" value="right">
-  <span>Sunset Point</span>
-</label>
-
-<label class="option">
-  <input type="radio" name="q1" value="wrong">
-  <span>Balgadi</span>
-</label>
-
-<label class="option">
-  <input type="radio" name="q1" value="wrong">
-  <span>Kuppali</span>
-</label>
-
+<label class="option"><input type="radio" name="q2" value="wrong"><span>Sringeri</span></label>
+<label class="option"><input type="radio" name="q2" value="right"><span>Sunset Point</span></label>
+<label class="option"><input type="radio" name="q2" value="wrong"><span>Balgadi</span></label>
+<label class="option"><input type="radio" name="q2" value="wrong"><span>Kuppali</span></label>
 <button onclick="checkAnswer('q2','right','q3')">Next</button>
 </div>
 
@@ -354,26 +321,10 @@ function restart(){
 <div id="q3" class="page">
 <h2>Question 3</h2>
 <p>Which colour top did I gift you?</p>
-<label class="option">
-  <input type="radio" name="q1" value="wrong">
-  <span>Red</span>
-</label>
-
-<label class="option">
-  <input type="radio" name="q1" value="wrong">
-  <span>Navy Blue</span>
-</label>
-
-<label class="option">
- <input type="radio" name="q1" value="right">
-  <span>Light Blue</span>
-</label>
-
-<label class="option">
-  <input type="radio" name="q1" value="wrong">
-  <span>Dark BLue</span>
-</label>
-
+<label class="option"><input type="radio" name="q3" value="wrong"><span>Red</span></label>
+<label class="option"><input type="radio" name="q3" value="wrong"><span>Navy Blue</span></label>
+<label class="option"><input type="radio" name="q3" value="right"><span>Light Blue</span></label>
+<label class="option"><input type="radio" name="q3" value="wrong"><span>Dark Blue</span></label>
 <button onclick="checkAnswer('q3','right','q4')">Next</button>
 </div>
 
@@ -381,54 +332,22 @@ function restart(){
 <div id="q4" class="page">
 <h2>Question 4</h2>
 <p>What do you like that I do for you?</p>
-<label class="option">
-  <input type="radio" name="q1" value="wrong">
-  <span>Irritating</span>
-</label>
-
-<label class="option">
-  <input type="radio" name="q1" value="wrong">
-  <span>Fighting</span>
-</label>
-
-<label class="option">
-  <input type="radio" name="q1" value="wrong">
-  <span>Keeping Quit</span>
-</label>
-
-<label class="option">
- <input type="radio" name="q1" value="right">
-  <span>Taunting you</span>
-</label>
-
+<label class="option"><input type="radio" name="q4" value="wrong"><span>Irritating</span></label>
+<label class="option"><input type="radio" name="q4" value="wrong"><span>Fighting</span></label>
+<label class="option"><input type="radio" name="q4" value="wrong"><span>Keeping Quiet</span></label>
+<label class="option"><input type="radio" name="q4" value="right"><span>Taunting you</span></label>
 <button onclick="checkAnswer('q4','right','q5')">Next</button>
 </div>
 
-<!-- Q5 -->
+<!-- Q5 (ANY ANSWER OK) -->
 <div id="q5" class="page">
 <h2>Question 5</h2>
 <p>Where do you want to go with me?</p>
-<label class="option">
-  <input type="radio" name="q1" value="wrong">
-  <span>Mysore</span>
-</label>
-
-<label class="option">
-  <input type="radio" name="q1" value="right">
-  <span>Adhiyogi</span>
-</label>
-
-<label class="option">
-  <input type="radio" name="q1" value="wrong">
-  <span>Resort</span>
-</label>
-
-<label class="option">
-  <input type="radio" name="q1" value="wrong">
-  <span>Table Tennis</span>
-</label>
-
-<button onclick="checkAnswer('q5','right','birthday')">Enter 💖</button>
+<label class="option"><input type="radio" name="q5"><span>Mysore</span></label>
+<label class="option"><input type="radio" name="q5"><span>Adhiyogi</span></label>
+<label class="option"><input type="radio" name="q5"><span>Resort</span></label>
+<label class="option"><input type="radio" name="q5"><span>Anywhere with you</span></label>
+<button onclick="show('birthday')">Enter 💖</button>
 </div>
 
 <div id="birthday" class="page">
@@ -671,6 +590,7 @@ update();
 
 </body>
 </html>
+
 
 
 
