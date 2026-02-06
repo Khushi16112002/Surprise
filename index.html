@@ -77,8 +77,8 @@ label{
 }
 
 .slides img{
-  width:260px;
-  height:320px;
+  min-width:100%;
+  height:100%;
   object-fit:contain;
   padding:10px;
 }
@@ -380,7 +380,7 @@ const captions = [
 
 function updateSlide(){
   slides.style.transform =
-    `translateX(-${currentIndex * 260}px)`;
+    `translateX(-${currentIndex * 100}%)`;
   captionEl.innerText = captions[currentIndex];
 }
 
@@ -406,6 +406,7 @@ updateSlide();
 
 </body>
 </html>
+
 
 
 
