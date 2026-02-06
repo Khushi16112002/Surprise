@@ -27,8 +27,13 @@ html,body{
   min-height:100vh;
   padding:60px 20px;
 }
-.page.active{display:block}
 
+.page.active{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+}
 h1,h2{color:var(--rose)}
 p{line-height:1.8}
 
@@ -126,9 +131,7 @@ label{
   margin-top:22px;
 }
 .login-page{
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  justify-content:center !important;
 }
 
 .login-box{
@@ -533,6 +536,7 @@ update();
 
 </body>
 </html>
+
 
 
 
