@@ -125,6 +125,58 @@ label{
   display:block;
   margin-top:22px;
 }
+.login-page{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.login-box{
+  background:#fff;
+  padding:50px 30px;
+  border-radius:28px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.12);
+  animation:fadeUp 1s ease;
+}
+
+.glow-text{
+  font-size:28px;
+  color:var(--rose);
+  text-shadow:0 0 12px rgba(139,94,94,0.3);
+}
+
+.login-line{
+  margin-top:14px;
+  font-size:15px;
+  opacity:0.85;
+}
+
+.heart{
+  font-size:36px;
+  margin:18px 0;
+  animation:heartbeat 1.5s infinite;
+}
+
+.pulse-btn{
+  animation:pulse 2s infinite;
+}
+
+/* Animations */
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.2)}
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(233,207,198,0.8)}
+  70%{box-shadow:0 0 0 20px rgba(233,207,198,0)}
+  100%{box-shadow:0 0 0 0 rgba(233,207,198,0)}
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(20px)}
+  to{opacity:1; transform:translateY(0)}
+}
 
 </style>
 
@@ -168,10 +220,23 @@ function restart(){
 <body>
 
 <!-- LOGIN -->
-<div id="login" class="page active">
-  <h1>This is only for you 🤍</h1>
-  <button onclick="show('q1')">Login 🔐</button>
+<div id="login" class="page active login-page">
+  <div class="login-box">
+    <h1 class="glow-text">This is only for you 🤍</h1>
+
+    <div class="heart">💙</div>
+
+    <p class="login-line">
+      Not everyone gets to see this.<br>
+      Only you do.
+    </p>
+
+    <button onclick="show('q1')" class="pulse-btn">
+      Login 🔐
+    </button>
+  </div>
 </div>
+
 
 <!-- Q1 -->
 <div id="q1" class="page">
@@ -468,6 +533,7 @@ update();
 
 </body>
 </html>
+
 
 
 
